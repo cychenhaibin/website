@@ -16,6 +16,12 @@ gsap.registerPlugin(ScrollTrigger)
 
 const App: React.FC = () => {
   useEffect(() => {
+    // 移除加载屏幕
+    const loadingScreen = document.querySelector('.loading-screen')
+    if (loadingScreen) {
+      loadingScreen.remove()
+    }
+    
     // 初始化GSAP ScrollTrigger
     ScrollTrigger.refresh()
     
