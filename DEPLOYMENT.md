@@ -12,9 +12,8 @@
 1. 进入你的 GitHub 仓库
 2. 点击 `Settings` 标签页
 3. 在左侧菜单中找到 `Pages`
-4. 在 `Source` 部分选择 `Deploy from a branch`
-5. 选择 `gh-pages` 分支
-6. 点击 `Save`
+4. 在 `Source` 部分选择 `GitHub Actions`
+5. 点击 `Save`
 
 ### 3. 更新配置文件
 
@@ -30,8 +29,8 @@
 
 1. 安装依赖
 2. 构建项目
-3. 部署到 `gh-pages` 分支
-4. 更新 GitHub Pages
+3. 上传构建产物
+4. 部署到 GitHub Pages
 
 ### 5. 访问你的网站
 
@@ -44,6 +43,7 @@
 - 首次部署可能需要几分钟时间
 - 如果遇到 404 错误，请检查 `base` 路径配置是否正确
 - 确保仓库是公开的（GitHub Pages 免费版要求）
+- 新的部署方式使用 GitHub 官方的 Pages 部署，更加稳定可靠
 
 ## 故障排除
 
