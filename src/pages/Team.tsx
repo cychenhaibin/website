@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import meituanLogo from '../assets/meituan.jpg'
+import shopeeLogo from '../assets/shopee.jpg'
+import zhihuitongLogo from '../assets/zhihuitong.png'
 
 interface InternshipExperience {
   id: number
@@ -26,7 +29,7 @@ const Team: React.FC = () => {
       company: "美团",
       position: "前端开发实习生",
       duration: "2024.06 - 2024.09",
-      logo: "src/assets/meituan.jpg",
+      logo: meituanLogo,
       description: "负责CRM系统的前端开发，参与用户界面优化和性能提升项目",
       achievements: [
         "优化页面加载速度提升40%",
@@ -43,7 +46,7 @@ const Team: React.FC = () => {
       company: "Shopee",
       position: "前端开发实习生",
       duration: "2024.03 - 2024.06",
-      logo: "src/assets/shopee.jpg",
+      logo: shopeeLogo,
       description: "参与电商平台开发，负责商品管理系统和用户界面优化",
       achievements: [
         "开发商品管理核心功能",
@@ -60,7 +63,7 @@ const Team: React.FC = () => {
       company: "智慧通",
       position: "前端开发实习生",
       duration: "2023.12 - 2024.03",
-      logo: "src/assets/zhihuitong.png",
+      logo: zhihuitongLogo,
       description: "参与智慧城市平台开发，负责数据可视化和管理后台开发",
       achievements: [
         "开发数据大屏展示系统",
