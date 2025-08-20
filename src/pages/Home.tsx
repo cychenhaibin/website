@@ -18,7 +18,7 @@ const Home: React.FC = () => {
     knowledgeBases: 0
   })
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [, setError] = useState<string | null>(null)
 
   // 计算与语雀相伴的天数
   const yuqueStartDate = '2024-08-23' // 根据362天推算的开始日期

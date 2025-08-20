@@ -91,12 +91,12 @@ const Team: React.FC = () => {
   }
 
   // 直接跳转到指定索引
-  const goToSlide = (index: number) => {
-    if (isTransitioning || index === currentIndex) return
-    setIsTransitioning(true)
-    setCurrentIndex(index)
-    setTimeout(() => setIsTransitioning(false), 500)
-  }
+  // const goToSlide = (index: number) => {
+  //   if (isTransitioning || index === currentIndex) return
+  //   setIsTransitioning(true)
+  //   setCurrentIndex(index)
+  //   setTimeout(() => setIsTransitioning(false), 500)
+  // }
 
   // 触摸滑动支持
   const [touchStart, setTouchStart] = useState<number | null>(null)

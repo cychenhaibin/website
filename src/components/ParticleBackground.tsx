@@ -40,7 +40,6 @@ const ParticleBackground: React.FC = () => {
   const linesRef = useRef<Line[]>([])
   const mouseRef = useRef({ x: 0, y: 0, active: false })
   const rafRef = useRef<number | null>(null)
-  const animationRef = useRef<number>()
   const lastTimeRef = useRef<number>(0)
   const frameRate = 30 // 限制帧率到30fps，提升性能
 
