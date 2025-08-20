@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./src/assets/chenhaibin.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camila - 陈海彬</title>
+    <meta name="description" content="Camila - 陈海彬" />
+    <meta name="keywords" content="Camila, 陈海彬, 前端开发, React, TypeScript" />
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+      /* 加载时的样式 */
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        overflow-x: hidden;
+      }
+      
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #0a192f 0%, #020c1b 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: #64ffda;
+      }
+      
+      .loading-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 20px #64ffda;
+      }
+      
+      .loading-bar {
+        width: 200px;
+        height: 2px;
+        background: rgba(100, 255, 218, 0.2);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      
+      .loading-progress {
+        height: 100%;
+        background: linear-gradient(90deg, #64ffda, #8a2be2);
+        width: 0%;
+        transition: width 0.3s ease;
+        animation: loading 2s ease-in-out infinite;
+      }
+      
+      @keyframes loading {
+        0% { width: 0%; }
+        50% { width: 100%; }
+        100% { width: 0%; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading-screen">
+        <div class="loading-logo">Camila</div>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- GitHub Pages 路由处理脚本 -->
+    <script>
+      // 处理 GitHub Pages 的路由问题
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  </body>
+</html>
