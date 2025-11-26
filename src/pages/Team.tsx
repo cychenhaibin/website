@@ -1,7 +1,7 @@
 import React from "react";
-import meituanLogo from "../assets/meituan.jpg";
+// import meituanLogo from "../assets/meituan.jpg";
 import shopeeLogo from "../assets/shopee_boy.jpg";
-import zhihuitongLogo from "../assets/zhihuitong.png";
+// import zhihuitongLogo from "../assets/zhihuitong.png";
 import oasyce from "../assets/oasyce.png";
 
 interface InternshipExperience {
