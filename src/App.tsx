@@ -8,8 +8,7 @@ import Home from './pages/Home'
 import Projects from './pages/Projects'
 import Team from './pages/Team'
 import GitHub from './pages/GitHub'
-import CursorEffect from './components/CursorEffect'
-import ParticleBackground from './components/ParticleBackground'
+import AntigravityParticles from './components/AntigravityParticles'
 
 // 注册GSAP插件
 gsap.registerPlugin(ScrollTrigger)
@@ -39,8 +38,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <CursorEffect />
-        <ParticleBackground />
+        <AntigravityParticles />
         <Header />
         <main>
           <Home />

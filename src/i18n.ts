@@ -6,7 +6,7 @@ const resources = {
     translation: {
       nav: {
         home: '首页',
-        team: '团队',
+        team: '经历',
         projects: '项目',
         github: 'GitHub'
       },
@@ -46,8 +46,8 @@ const resources = {
         }
       },
       team: {
-        title: '实习经历',
-        subtitle: '来自不同公司的实习经历'
+        title: '工作经历',
+        subtitle: '用时间轴的方式回顾几段工作'
       },
       projects: {
         titleWord: '项目',
@@ -108,7 +108,7 @@ const resources = {
     translation: {
       nav: {
         home: 'Home',
-        team: 'Team',
+        team: 'Experience',
         projects: 'Projects',
         github: 'GitHub'
       },

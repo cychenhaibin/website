@@ -7,16 +7,16 @@ const Footer: React.FC = () => {
   const { t } = useTranslation()
 
   return (
-    <footer className="bg-black/40 backdrop-blur-md border-t border-cyan-500/20 mt-10">
+    <footer className="border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* 品牌信息 */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-2 text-2xl font-bold text-gradient glow mb-4">
-              <span className="text-3xl">🏔️</span>
+            <div className="flex items-center space-x-2 text-xl font-normal text-gray-900 mb-4">
+              <span className="text-2xl">🏔️</span>
               <span>Camila</span>
             </div>
-            <p className="text-gray-400 mb-4 max-w-md">
+            <p className="text-gray-600 mb-4 max-w-md font-light">
               {t('footer.brand.description')}
             </p>
             <div className="flex space-x-4">
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                 href="https://github.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                 href="https://www.yuque.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="语雀"
               >
                 <div className="w-5 h-5">
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="mailto:haibinchenleo@outlook.com"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="Email"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,25 +58,25 @@ const Footer: React.FC = () => {
 
           {/* 快速链接 */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">{t('footer.quickLinks')}</h3>
+            <h3 className="text-lg font-normal text-gray-900 mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Link to="/" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
                   {t('nav.home')}
                 </Link>
               </li>
               <li>
-                <Link to="/projects" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Link to="/projects" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
                   {t('nav.projects')}
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Link to="/team" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
                   {t('nav.team')}
                 </Link>
               </li>
               <li>
-                <Link to="/github" className="text-gray-400 hover:text-cyan-400 transition-colors">
+                <Link to="/github" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
                   {t('nav.github')}
                 </Link>
               </li>
@@ -85,8 +85,8 @@ const Footer: React.FC = () => {
 
           {/* 联系我们 */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">{t('footer.contactMe')}</h3>
-            <ul className="space-y-2 text-gray-400">
+            <h3 className="text-lg font-normal text-gray-900 mb-4">{t('footer.contactMe')}</h3>
+            <ul className="space-y-2 text-gray-600 font-light">
               <li>📧 haibinchenleo@outlook.com</li>
               <li> +86 156 9688 6898</li>
               <li>🌐 www.Camila.com</li>
@@ -96,11 +96,11 @@ const Footer: React.FC = () => {
         </div>
 
         {/* 版权信息 */}
-        <div className="border-t border-white/10 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        <div className="border-t border-gray-200 mt-8 pt-8 text-center">
+          <p className="text-gray-600 font-light">
             © {currentYear} Camila. {t('footer.copyright')}
             <span className="mx-2">|</span>
-            <span className="text-cyan-400">{t('footer.madeWith')}</span>
+            <span className="text-[#4285F4]">{t('footer.madeWith')}</span>
           </p>
         </div>
       </div>

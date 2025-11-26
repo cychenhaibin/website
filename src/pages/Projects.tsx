@@ -1,62 +1,62 @@
-import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
-import { useTranslation } from 'react-i18next'
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { useTranslation } from "react-i18next";
 
 interface Project {
-  id: number
-  title: string
-  description: string
-  technologies: string[]
-  githubUrl: string
-  stars: number
-  forks: number
-  image: string
+  id: number;
+  title: string;
+  description: string;
+  technologies: string[];
+  githubUrl: string;
+  stars: number;
+  forks: number;
+  image: string;
 }
 
 const Projects: React.FC = () => {
-  const projectsRef = useRef<HTMLDivElement>(null)
-  const { t } = useTranslation()
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   const projects: Project[] = [
     {
       id: 1,
-      title: t('projects.items.cube.title'),
-      description: t('projects.items.cube.description'),
+      title: t("projects.items.cube.title"),
+      description: t("projects.items.cube.description"),
       technologies: ["React", "TypeScript", "Tailwind CSS", "dumi"],
       githubUrl: "https://github.com/cychenhaibin/cube.git",
       stars: 1250,
       forks: 89,
-      image: ""
+      image: "",
     },
     {
       id: 2,
-      title: t('projects.items.cubeai.title'),
-      description: t('projects.items.cubeai.description'),
+      title: t("projects.items.cubeai.title"),
+      description: t("projects.items.cubeai.description"),
       technologies: ["React", "TypeScript", "Tailwind CSS", "WebSocket"],
       githubUrl: "https://github.com/cychenhaibin/ChatAI_FE.git",
       stars: 856,
       forks: 67,
-      image: ""
+      image: "",
     },
     {
       id: 3,
-      title: t('projects.items.zhiyi.title'),
-      description: t('projects.items.zhiyi.description'),
+      title: t("projects.items.zhiyi.title"),
+      description: t("projects.items.zhiyi.description"),
       technologies: ["Vue", "TypeScript", "Tailwind CSS"],
       githubUrl: "https://github.com/cychenhaibin/zhi_Yi.git",
       stars: 634,
       forks: 45,
-      image: ""
+      image: "",
     },
     {
       id: 4,
-      title: t('projects.items.wxlxai.title'),
-      description: t('projects.items.wxlxai.description'),
+      title: t("projects.items.wxlxai.title"),
+      description: t("projects.items.wxlxai.description"),
       technologies: ["Vue", "TypeScript", "uniapp"],
       githubUrl: "https://github.com/cychenhaibin/WX-LXAI.git",
       stars: 442,
       forks: 32,
-      image: ""
+      image: "",
     },
     // {
     //   id: 5,
@@ -78,26 +78,37 @@ const Projects: React.FC = () => {
     //   forks: 41,
     //   image: ""
     // }
-  ]
+  ];
 
   useEffect(() => {
     if (projectsRef.current) {
-      gsap.fromTo(projectsRef.current.querySelectorAll('.project-card'),
+      gsap.fromTo(
+        projectsRef.current.querySelectorAll(".project-card"),
         { y: 100, opacity: 0, scale: 0.9 },
-        { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: 'power2.out' }
-      )
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: "power2.out",
+        }
+      );
     }
-  }, [])
+  }, []);
 
   return (
-    <div id="projects" className="min-h-screen">
+    <div id="projects">
       {/* 页面标题 */}
       <section className="pt-20 pb-10 px-4 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-          Camila <span className="text-gradient glow">{t('projects.titleWord')}</span>
+        <h1 className="text-4xl md:text-5xl font-normal text-[#4285F4] mb-6">
+          Camila{" "}
+          <span className="text-gradient glow text-gray-900">
+            {t("projects.titleWord")}
+          </span>
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          {t('projects.subtitle')}
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+          {t("projects.subtitle")}
         </p>
       </section>
 
@@ -108,31 +119,41 @@ const Projects: React.FC = () => {
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="project-card group relative p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 hover:bg-white/10 cursor-pointer overflow-hidden"
+                className="project-card group p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer relative overflow-hidden"
               >
-                {/* 霓虹光效 */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
                 {/* 项目图标 */}
                 {/* <div className="text-5xl mb-4 text-center group-hover:scale-110 transition-transform duration-300">
                   {project.image}
                 </div> */}
 
-                {/* 项目信息 */}
-                <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex justify-between items-center mb-2">
+                  {/* 项目信息 */}
+                  <h3 className="text-lg md:text-xl font-normal text-gray-900 group-hover:text-[#4285F4] transition-colors">
+                    {project.title}
+                  </h3>
+                  {/* 操作按钮 */}
+                  <div className="flex space-x-1">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#4285F4] px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm"
+                    >
+                      {t("projects.viewSource")}
+                    </a>
+                  </div>
+                </div>
 
-                <p className="text-gray-400 mb-4 leading-relaxed group-hover:text-gray-300 transition-colors">
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed font-light group-hover:text-gray-900 transition-colors">
                   {project.description}
                 </p>
 
                 {/* 技术标签 */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 bg-cyan-500/20 text-cyan-400 text-sm rounded-full border border-cyan-500/30 group-hover:bg-cyan-500/30 transition-colors"
+                      className="px-3 py-1 bg-gray-50 text-gray-700 text-xs rounded-full border border-gray-200 group-hover:border-[#4285F4]/40 group-hover:text-[#4285F4] transition-colors"
                     >
                       {tech}
                     </span>
@@ -152,18 +173,6 @@ const Projects: React.FC = () => {
                     </span>
                   </div>
                 </div> */}
-
-                {/* 操作按钮 */}
-                <div className="flex space-x-3">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 text-white text-center rounded-lg hover:from-cyan-600 hover:to-purple-700 transition-all duration-300 text-sm font-medium transform hover:scale-105"
-                  >
-                    {t('projects.viewSource')}
-                  </a>
-                </div>
               </div>
             ))}
           </div>
@@ -191,7 +200,7 @@ const Projects: React.FC = () => {
         </div>
       </section> */}
     </div>
-  )
-}
+  );
+};
 
-export default Projects
+export default Projects;

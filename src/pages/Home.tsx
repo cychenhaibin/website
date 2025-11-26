@@ -189,21 +189,16 @@ const Home: React.FC = () => {
         ref={heroRef}
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       >
-        {/* 动态背景装饰 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-purple-500/5 to-transparent"></div>
-        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="hero-title text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-gradient glow">{t('home.hero.title1')} </span>
-            <span className="text-white">{t('home.hero.title2')}</span>
+          <h1 className="hero-title text-5xl md:text-7xl font-normal mb-6">
+            <span className="text-[#4285F4]">{t('home.hero.title1')} </span>
+            <span className="text-gray-900">{t('home.hero.title2')}</span>
           </h1>
 
-          <p className="hero-subtitle text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+          <p className="hero-subtitle text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
             {t('home.hero.subtitleLine1')}
             <br />
-            <span className="text-cyan-400 font-medium text-xl">{t('home.hero.subtitleLine2')}</span>
+            <span className="text-[#4285F4] font-normal text-xl">{t('home.hero.subtitleLine2')}</span>
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center">
@@ -212,7 +207,7 @@ const Home: React.FC = () => {
                 href="https://github.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-white/5 rounded-lg hover:bg-gray-100 text-[#9aa0a6] hover:text-gray-900 transition-all duration-200"
                 title="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -223,18 +218,16 @@ const Home: React.FC = () => {
                 href="https://www.yuque.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-white/5 rounded-lg hover:bg-gray-100 text-[#9aa0a6] hover:text-gray-900 transition-all duration-200"
                 title="语雀"
               >
                 <div className="w-5 h-5">
-                  {/* <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"> */}
                   <img src='https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*PXAJTYXseTsAAAAAAAAAAAAADvuFAQ/original' alt="语雀" />
-                  {/* </svg> */}
                 </div>
               </a>
               <a
                 href="mailto:haibinchenleo@outlook.com"
-                className="p-2 bg-white/10 rounded-lg hover:bg-cyan-500/20 hover:text-cyan-400 transition-all duration-300"
+                className="p-2 bg-white/5 rounded-lg hover:bg-gray-100 text-[#9aa0a6] hover:text-gray-900 transition-all duration-200"
                 title="Email"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -247,35 +240,33 @@ const Home: React.FC = () => {
       </section>
 
       {/* 特色介绍 */}
-      <section id="features" className="py-10 px-4 bg-gradient-to-b from-transparent to-black/20">
+      <section id="features" className="py-10 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center pb-10">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              <span className="text-gradient glow">Camila</span> <span className="text-3xl">{t('home.features.title')}</span>
+            <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-6">
+              <span className="text-[#4285F4]">Camila</span> <span className="text-3xl font-light text-gray-700">{t('home.features.title')}</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
               {t('home.hero.subtitleLine2')}
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-cyan-500/50 transition-all duration-300 transform hover:scale-105 hover:bg-white/10 cursor-pointer"
+                className="group p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer"
               >
                 <a href={feature.href}>
-                  <div className="mb-4 text-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="hidden md:block mb-4 text-center transition-transform duration-200">
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-normal text-gray-900 mb-3 group-hover:text-[#4285F4] transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+                  <p className="text-gray-600 font-light leading-relaxed group-hover:text-gray-900 transition-colors">
                     {feature.description}
                   </p>
-                  {/* 悬停时的光效 */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                 </a>
               </div>
             ))}
@@ -286,48 +277,48 @@ const Home: React.FC = () => {
       {/* 统计数据 */}
       <section className="py-10 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-4 md:grid-cols-4 gap-8 text-center">
             {loading ? (
               <>
-                <div className="col-span-2 md:col-span-4 text-center py-8">
-                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500"></div>
-                  <p className="mt-2 text-gray-400">正在获取语雀数据...</p>
+                <div className="col-span-4 md:col-span-4 text-center py-8">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-[#4285F4]"></div>
+                  <p className="mt-2 text-gray-600 font-light">正在获取语雀数据...</p>
                 </div>
               </>
             ) : (
               <>
-            <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-                {daysWithYuque}
-              </div>
-              <div className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                {t('home.stats.daysWithYuque')}
-              </div>
-            </div>
-            <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-                {yuqueStats.wordCount > 10000 ? `${Math.round(yuqueStats.wordCount / 10000)}W` : yuqueStats.wordCount}
-              </div>
-              <div className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                {t('home.stats.wordCount')}
-              </div>
-            </div>
-            <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-                {yuqueStats.docs}
-              </div>
-              <div className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                {t('home.stats.docs')}
-              </div>
-            </div>
-            <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-gradient mb-2 group-hover:scale-110 transition-transform duration-300">
-                {yuqueStats.knowledgeBases}
-              </div>
-              <div className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                {t('home.stats.knowledgeBases')}
-              </div>
-            </div>
+                <div className="group">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2 transition-transform duration-200">
+                    {daysWithYuque}
+                  </div>
+                  <div className="text-gray-900 group-hover:text-gray-900 font-light transition-colors">
+                    {t('home.stats.daysWithYuque')}
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2 transition-transform duration-200">
+                    {yuqueStats.wordCount > 10000 ? `${Math.round(yuqueStats.wordCount / 10000)}W` : yuqueStats.wordCount}
+                  </div>
+                  <div className="text-gray-900 group-hover:text-gray-900 font-light transition-colors">
+                    {t('home.stats.wordCount')}
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2 transition-transform duration-200">
+                    {yuqueStats.docs}
+                  </div>
+                  <div className="text-gray-900 group-hover:text-gray-900 font-light transition-colors">
+                    {t('home.stats.docs')}
+                  </div>
+                </div>
+                <div className="group">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2 transition-transform duration-200">
+                    {yuqueStats.knowledgeBases}
+                  </div>
+                  <div className="text-gray-900 group-hover:text-gray-900 font-light transition-colors">
+                    {t('home.stats.knowledgeBases')}
+                  </div>
+                </div>
               </>
             )}
           </div>

@@ -152,7 +152,8 @@ const GitHub: React.FC = () => {
   // 处理最近活动
   const processRecentActivity = (events: any[]) => {
     const activities: { repo: string; action: string; date: string }[] = []
-    
+
+    console.log(events, 'events')
     events.forEach(event => {
       if (event.repo && event.type && event.created_at) {
         let action = ''
@@ -298,14 +299,17 @@ const GitHub: React.FC = () => {
     <div id="github" className="min-h-screen">
       {/* 页面标题 */}
       <section className="pt-20 pb-10 px-4 text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-          GitHub <span className="text-gradient glow">{t('github.titleData')}</span>
+        <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-6">
+          GitHub{" "}
+          <span className="text-gradient glow text-gray-900">
+            {t("github.titleData")}
+          </span>
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-          {t('github.subtitle')}
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
+          {t("github.subtitle")}
         </p>
         {error && (
-          <div className="mt-4 p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400">
+          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-500 text-sm">
             注意: {error}，显示的是备用数据
           </div>
         )}
@@ -316,54 +320,72 @@ const GitHub: React.FC = () => {
         <div className="max-w-7xl mx-auto">
           {loading ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500"></div>
-              <p className="mt-4 text-gray-400">正在获取GitHub数据...</p>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-[#4285F4]"></div>
+              <p className="mt-4 text-gray-600 font-light">正在获取GitHub数据...</p>
             </div>
           ) : (
             <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-                <div className="stat-card text-center p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-4xl font-bold text-gradient mb-2">
-                    <span className="stat-number" data-value={stats.totalStars}>0</span>
+              <div className="grid grid-cols-4 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 mb-16" ref={statsRef}>
+              <div className="stat-card text-center pt-2 md:pt-8 pb-2 md:pb-8 md:p-8 bg-white rounded-lg md:border md:border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200">
+                  <div className="text-2xl md:text-4xl font-light text-[#4285F4] mb-2">
+                    <span className="stat-number" data-value={stats.totalStars}>
+                      0
+                    </span>
                   </div>
-                  <div className="text-gray-400">{t('github.totalStars')}</div>
+                  <div className="text-gray-900 font-light">{t("github.totalStars")}</div>
                 </div>
-                <div className="stat-card text-center p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-4xl font-bold text-gradient mb-2">
-                    <span className="stat-number" data-value={stats.totalForks}>0</span>
+                <div className="stat-card text-center pt-2 md:pt-8 pb-2 md:pb-8 md:p-8 bg-white rounded-lg md:border md:border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2">
+                    <span className="stat-number" data-value={stats.totalForks}>
+                      0
+                    </span>
                   </div>
-                  <div className="text-gray-400">{t('github.totalForks')}</div>
+                  <div className="text-gray-900 font-light">{t("github.totalForks")}</div>
                 </div>
-                <div className="stat-card text-center p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-4xl font-bold text-gradient mb-2">
-                    <span className="stat-number" data-value={stats.totalRepos}>0</span>
+                <div className="stat-card text-center pt-2 md:pt-8 pb-2 md:pb-8 md:p-8 bg-white rounded-lg md:border md:border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2">
+                    <span className="stat-number" data-value={stats.totalRepos}>
+                      0
+                    </span>
                   </div>
-                  <div className="text-gray-400">{t('github.repos')}</div>
+                  <div className="text-gray-900 font-light">{t("github.repos")}</div>
                 </div>
-                <div className="stat-card text-center p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <div className="text-4xl font-bold text-gradient mb-2">
-                    <span className="stat-number" data-value={stats.totalCommits}>0</span>
+                <div className="stat-card text-center pt-2 md:pt-8 pb-2 md:pb-8 md:p-8 bg-white rounded-lg md:border md:border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200">
+                  <div className="text-2xl md:text-4xl font-normal text-[#4285F4] mb-2">
+                    <span className="stat-number" data-value={stats.totalCommits}>
+                      0
+                    </span>
                   </div>
-                <div className="text-gray-400">总提交数</div>
-            </div>
+                  <div className="text-gray-900 font-light">总提交数</div>
+                </div>
               </div>
 
-              {/* 技术栈分布 */}
+              {/* 技术栈分布 & 最近活动 */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div className="stat-card p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <h3 className="text-2xl font-bold text-white mb-6">{t('github.techStack')}</h3>
+                <div className="stat-card p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/40 hover:shadow-md transition-all duration-200">
+                  <h3 className="text-2xl font-normal text-gray-900 mb-4">
+                    {t("github.techStack")}
+                  </h3>
                   <div className="space-y-4">
                     {stats.topLanguages.map((lang, index) => (
                       <div key={index} className="flex items-center justify-between">
-                        <span className="text-gray-300">{lang.name}</span>
+                        <span className="text-gray-700 font-light text-sm">{lang.name}</span>
                         <div className="flex items-center space-x-2">
-                          <div className="w-32 bg-gray-700 rounded-full h-2">
+                          <div className="w-32 bg-gray-100 rounded-full h-2">
                             <div
-                              className="bg-gradient-to-r from-cyan-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
-                              style={{ width: `${(lang.count / Math.max(...stats.topLanguages.map(l => l.count))) * 100}%` }}
+                              className="bg-[#4285F4] h-2 rounded-full transition-all duration-1000"
+                              style={{
+                                width: `${
+                                  (lang.count /
+                                    Math.max(...stats.topLanguages.map((l) => l.count))) *
+                                  100
+                                }%`,
+                              }}
                             ></div>
                           </div>
-                          <span className="text-cyan-400 font-medium w-8 text-right">{lang.count}</span>
+                          <span className="text-[#4285F4] font-light w-8 text-right text-sm">
+                            {lang.count}
+                          </span>
                         </div>
                       </div>
                     ))}
@@ -371,20 +393,51 @@ const GitHub: React.FC = () => {
                 </div>
 
                 {/* 最近活动 */}
-                <div className="stat-card p-6 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10">
-                  <h3 className="text-2xl font-bold text-white mb-6">{t('github.recentActivity')}</h3>
-                  <div className="space-y-4">
-                    {stats.recentActivity.map((activity, index) => (
-                      <div key={index} className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg">
-                        <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
-                        <div className="flex-1">
-                          <div className="text-white font-medium">{activity.repo}</div>
-                          <div className="text-gray-400 text-sm">{activity.action}</div>
-                        </div>
-                        <div className="text-gray-500 text-sm">{activity.date}</div>
+                <div className="stat-card p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/40 hover:shadow-md transition-all duration-200">
+                  <h3 className="text-2xl font-normal text-gray-900 mb-4">
+                    {t("github.recentActivity")}
+                  </h3>
+                  {stats.recentActivity.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center py-6 text-center text-gray-500 text-sm font-light">
+                      <div className="w-10 h-10 mb-3 flex items-center justify-center text-gray-400">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          className="w-8 h-8"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={0.8}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3.75 7.5L12 3.75l8.25 3.75M3.75 7.5V18a2.25 2.25 0 002.25 2.25h12A2.25 2.25 0 0020.25 18V7.5M3.75 7.5L12 11.25M20.25 7.5L12 11.25m0 0v8.25"
+                          />
+                        </svg>
                       </div>
-                    ))}
-                  </div>
+                      <p>最近还没有公开活动</p>
+                    </div>
+                  ) : (
+                    <div className="space-y-3">
+                      {stats.recentActivity.map((activity, index) => (
+                        <div
+                          key={index}
+                          className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg"
+                        >
+                          <div className="w-2 h-2 bg-[#4285F4] rounded-full"></div>
+                          <div className="flex-1">
+                            <div className="text-gray-900 text-sm font-normal">
+                              {activity.repo}
+                            </div>
+                            <div className="text-gray-600 text-xs">
+                              {activity.action}
+                            </div>
+                          </div>
+                          <div className="text-gray-500 text-xs">{activity.date}</div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </>

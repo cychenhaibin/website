@@ -71,8 +71,8 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled
-          ? 'bg-black/80 backdrop-blur-md border-b border-cyan-500/20'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${isScrolled
+          ? 'bg-white/95 border-b border-gray-200 shadow-sm'
           : 'bg-transparent'
         }`}
     >
@@ -81,41 +81,38 @@ const Header: React.FC = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2 text-2xl font-bold text-gradient glow hover:scale-105 transition-transform"
+            className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors"
           >
-            <span className="text-3xl">🏔️</span>
+            <span className="text-2xl">🏔️</span>
             <span>Camlia</span>
           </button>
 
           {/* 桌面端导航 */}
-          <nav className="hidden md:flex items-center space-x-4">
+          <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`nav-item relative px-3 py-2 text-sm font-medium transition-all duration-300 hover:text-cyan-400 ${activeSection === item.id
-                    ? 'text-cyan-400'
-                    : 'text-gray-300 hover:text-cyan-400'
+                className={`nav-item relative font-light px-4 py-2 text-sm transition-colors duration-200 ${activeSection === item.id
+                    ? 'text-[#4285F4]'
+                    : 'text-gray-700 hover:text-[#4285F4]'
                   }`}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 rounded-full"></span>
-                )}
               </button>
             ))}
             {/* 语言切换 */}
-            <div className="flex items-center space-x-2 pl-2 ml-2 border-l border-white/10">
+            <div className="flex items-center space-x-1 pl-2 ml-2 border-l border-gray-200">
               <button
                 onClick={() => i18n.changeLanguage('zh')}
-                className={`px-2 py-1 text-xs rounded ${i18n.language.startsWith('zh') ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/10'}`}
+                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
                 aria-label="切换到中文"
               >
                 {t('common.lang.zh')}
               </button>
               <button
                 onClick={() => i18n.changeLanguage('en')}
-                className={`px-2 py-1 text-xs rounded ${i18n.language.startsWith('en') ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/10'}`}
+                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
                 aria-label="Switch to English"
               >
                 {t('common.lang.en')}
@@ -125,7 +122,7 @@ const Header: React.FC = () => {
 
           {/* 移动端菜单按钮 */}
           <button
-            className="md:hidden p-2 text-gray-300 hover:text-cyan-400 transition-colors"
+            className="md:hidden p-2 text-gray-700 hover:text-[#4285F4] transition-colors"
             onClick={toggleMenu}
           >
             <svg
@@ -158,30 +155,30 @@ const Header: React.FC = () => {
           className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
             }`}
         >
-          <nav className="py-4 space-y-2">
+          <nav className="py-4 space-y-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors ${activeSection === item.id
-                    ? 'text-cyan-400 bg-cyan-400/10 rounded-lg'
-                    : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/5 rounded-lg'
+                className={`block w-full font-light text-left px-4 py-2 text-sm transition-colors ${activeSection === item.id
+                    ? 'text-[#4285F4] bg-[#4285F4]/10 rounded'
+                    : 'text-gray-700 hover:text-[#4285F4] hover:bg-gray-100 rounded'
                   }`}
               >
                 {item.label}
               </button>
             ))}
             {/* 语言切换（移动端） */}
-            <div className="flex items-center space-x-2 px-3 pt-2">
+            <div className="flex items-center space-x-2 px-4 pt-2">
               <button
                 onClick={() => i18n.changeLanguage('zh')}
-                className={`px-2 py-1 text-xs rounded ${i18n.language.startsWith('zh') ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/10'}`}
+                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
               >
                 {t('common.lang.zh')}
               </button>
               <button
                 onClick={() => i18n.changeLanguage('en')}
-                className={`px-2 py-1 text-xs rounded ${i18n.language.startsWith('en') ? 'text-cyan-400 bg-cyan-400/10' : 'text-gray-300 hover:text-cyan-400 hover:bg-cyan-400/10'}`}
+                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
               >
                 {t('common.lang.en')}
               </button>

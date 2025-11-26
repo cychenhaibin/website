@@ -24,6 +24,7 @@
     "react-i18next": "^15.6.1",
     "react-intersection-observer": "^9.5.2",
     "react-router-dom": "^6.8.1",
+    "react-timelines": "^2.6.1",
     "three": "^0.158.0"
   },
   "devDependencies": {
