@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import CamilaLogo from './CamilaLogo'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
@@ -13,7 +14,7 @@ const Footer: React.FC = () => {
           {/* 品牌信息 */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 text-xl font-normal text-gray-900 mb-4">
-              <span className="text-2xl">🏔️</span>
+              <CamilaLogo size={28} className="text-gray-900" />
               <span>Camila</span>
             </div>
             <p className="text-gray-600 mb-4 max-w-md font-light">

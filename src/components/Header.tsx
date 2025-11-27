@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { gsap } from 'gsap'
+import CamilaLogo from './CamilaLogo'
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -81,10 +82,10 @@ const Header: React.FC = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors"
+            className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
           >
-            <span className="text-2xl">🏔️</span>
-            <span>Camlia</span>
+            <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
+            <span>Camila</span>
           </button>
 
           {/* 桌面端导航 */}
