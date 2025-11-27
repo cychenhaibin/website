@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 // import meituanLogo from "../assets/meituan.jpg";
 import shopeeLogo from "../assets/shopee_boy.jpg";
 // import zhihuitongLogo from "../assets/zhihuitong.png";
@@ -18,87 +19,85 @@ interface InternshipExperience {
   skills: string[];
 }
 
-const internshipExperiences: InternshipExperience[] = [
+const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 1,
-    company: "绿洲时空",
-    position: "前端开发实习生",
+    company: t("team.experiences.oasyce.company"),
+    position: t("team.position"),
     duration: "2024.09 - 2024.12",
-    description: "",
+    description: t("team.experiences.oasyce.description"),
     companyUrl: undefined,
     color: "from-emerald-400 to-cyan-500",
     bgGradient: "from-emerald-500/40 via-emerald-400/10 to-cyan-400/30",
     logo: oasyce,
-    achievements: [
-      "负责到家业务核心页面重构，将首屏加载时间优化约 30%。",
-      "基于业务数据梳理交互流程，推动 2 个重要功能的体验改版落地。",
-      "与后端、产品、高频沟通需求，保证功能按时上线并可观测。",
-    ],
-    skills: ["React", "TypeScript", "前端工程化", "性能优化", "业务抽象"],
+    achievements: t("team.experiences.oasyce.achievements", {
+      returnObjects: true,
+    }),
+    skills: t("team.experiences.oasyce.skills", { returnObjects: true }),
   },
   {
     id: 2,
-    company: "美团",
-    position: "前端开发实习生",
+    company: t("team.experiences.meituan.company"),
+    position: t("team.position"),
     duration: "2025.06 - 2025.09",
-    description: "到家事业群",
+    description: t("team.experiences.meituan.description"),
     companyUrl: "https://www.meituan.com",
     color: "from-yellow-400 to-orange-500",
     bgGradient: "from-yellow-500/40 via-orange-400/10 to-amber-400/30",
     logo: "https://s3.meituan.net/static-prod01/com.sankuai.metadatadrive.tools.kaai/home/assets/png/kangaroo-logo-BXZL65ZR.png",
-    achievements: [
-      "搭建营销活动组件库，沉淀 10+ 复用组件，减少重复开发工作量。",
-      "参与 A/B 实验方案实现，支持多版本页面按配置快速切换。",
-      "协助排查线上问题，优化监控埋点并输出问题复盘。",
-    ],
-    skills: ["React", "前端监控", "A/B 实验", "组件化", "协同沟通"],
+    achievements: t("team.experiences.meituan.achievements", {
+      returnObjects: true,
+    }),
+    skills: t("team.experiences.meituan.skills", { returnObjects: true }),
   },
   {
     id: 3,
-    company: "Shopee",
-    position: "前端开发实习生",
+    company: t("team.experiences.shopee.company"),
+    position: t("team.position"),
     duration: "2025.03 - 2025.06",
-    description: "供应链",
+    description: t("team.experiences.shopee.description"),
     companyUrl: "https://shopee.com",
     color: "from-orange-400 to-red-500",
     bgGradient: "from-orange-500/40 via-red-400/10 to-rose-400/30",
     logo: shopeeLogo,
-    achievements: [
-      "参与供应链运营平台的多个模块开发，提升内部流程效率。",
-      "将零散页面重构为可配置表单与表格，提高需求响应速度。",
-      "与后端约定统一的数据接口规范，降低前后端联调成本。",
-    ],
-    skills: ["React", "中后台设计", "表单与表格", "可配置化", "跨时区协作"],
+    achievements: t("team.experiences.shopee.achievements", {
+      returnObjects: true,
+    }),
+    skills: t("team.experiences.shopee.skills", { returnObjects: true }),
   },
   {
     id: 4,
-    company: "智慧通",
-    position: "前端开发实习生",
+    company: t("team.experiences.zhihuitong.company"),
+    position: t("team.position"),
     duration: "2024.12 - 2025.03",
-    description: "数字教育",
+    description: t("team.experiences.zhihuitong.description"),
     companyUrl: undefined,
     color: "from-blue-400 to-purple-500",
     bgGradient: "from-blue-500/40 via-indigo-400/10 to-purple-400/30",
     logo: "https://ipraclass.com/static/img/logo.214a1f84.png",
-    achievements: [
-      "参与教务管理、课程排课等业务需求实现，打磨交互体验。",
-      "针对弱网环境做加载与占位优化，减少页面白屏时间。",
-      "帮助团队整理组件库使用规范，降低样式与交互分裂。",
-    ],
-    skills: ["React", "Tailwind CSS", "教育行业理解", "体验优化", "设计协作"],
+    achievements: t("team.experiences.zhihuitong.achievements", {
+      returnObjects: true,
+    }),
+    skills: t("team.experiences.zhihuitong.skills", { returnObjects: true }),
   },
 ];
 
 const Team: React.FC = () => {
+  const { t } = useTranslation();
+  const internshipExperiences = getInternshipExperiences(t);
+
   return (
     <div id="team">
       {/* 标题区域 */}
       <section className="pt-20 pb-10 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4">
-          <span className="text-[#4285F4] font-semibold">工作</span> 经历
+          <span className="text-[#4285F4] font-semibold">
+            {t("team.titleWord")}
+          </span>{" "}
+          {t("team.title")}
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light">
-          用时间轴的方式回顾几段工作，把「做过什么」和「解决了什么问题」讲清楚。
+          {t("team.subtitle")}
         </p>
       </section>
 
@@ -136,59 +135,62 @@ const Team: React.FC = () => {
                   >
                     <div className="group p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer">
                       {/* 顶部：logo + 公司 + 时间 */}
-                      <div className="flex items-start justify-between gap-4 md:gap-3">
-                        <div className="flex gap-3">
-                          <div className="w-10 h-10 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex-none">
-                            <img
-                              src={experience.logo}
-                              alt={experience.company}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div>
-                            <div className="flex flex-col gap-0.5 mb-1 md:flex-row md:items-center md:gap-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-10 h-10 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex-none">
+                          <img
+                            src={experience.logo}
+                            alt={experience.company}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="flex flex-col gap-1 flex-1 min-w-0">
+                          <div className="flex flex-row justify-between items-center w-full gap-2">
+                            <div className="flex flex-col gap-0.5 md:flex-row md:items-center md:gap-3 min-w-0 flex-1">
                               <h3 className="text-base md:text-lg font-normal text-gray-900 group-hover:text-[#4285F4] transition-colors">
                                 {experience.company}
                               </h3>
                               {/* 描述 */}
-                              <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-light">
-                                {experience.description}
-                              </p>
+                              {experience.description && (
+                                <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-light">
+                                  {experience.description}
+                                </p>
+                              )}
                             </div>
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <p className="text-xs text-gray-500">
-                                {experience.duration}
-                              </p>
-                              <span className="px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm">
-                                {experience.position}
-                              </span>
-                            </div>
+                            {experience.companyUrl && (
+                              <a
+                                href={experience.companyUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-1 text-xs text-[#4285F4] hover:underline whitespace-nowrap flex-shrink-0"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="h-3.5 w-3.5"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                  strokeWidth={2}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                  />
+                                </svg>
+                                <span>{t("team.companyHomepage")}</span>
+                              </a>
+                            )}
+                          </div>
+
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <p className="text-xs text-gray-500">
+                              {experience.duration}
+                            </p>
+                            <span className="px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm">
+                              {experience.position}
+                            </span>
                           </div>
                         </div>
-                        {experience.companyUrl && (
-                          <a
-                            href={experience.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1 text-xs text-[#4285F4] hover:underline whitespace-nowrap mt-1"
-                          >
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="h-3.5 w-3.5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              />
-                            </svg>
-                            <span>公司主页</span>
-                          </a>
-                        )}
                       </div>
 
                       {/* 核心成就 */}

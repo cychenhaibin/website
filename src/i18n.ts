@@ -46,8 +46,53 @@ const resources = {
         }
       },
       team: {
-        title: '工作经历',
-        subtitle: '用时间轴的方式回顾几段工作'
+        titleWord: '工作',
+        title: '经历',
+        subtitle: '用时间轴的方式回顾几段工作，把「做过什么」和「解决了什么问题」讲清楚。',
+        companyHomepage: '公司主页',
+        position: '前端开发实习生',
+        experiences: {
+          oasyce: {
+            company: '绿洲时空',
+            description: '',
+            achievements: [
+              '负责到家业务核心页面重构，将首屏加载时间优化约 30%。',
+              '基于业务数据梳理交互流程，推动 2 个重要功能的体验改版落地。',
+              '与后端、产品、高频沟通需求，保证功能按时上线并可观测。'
+            ],
+            skills: ['React', 'TypeScript', '前端工程化', '性能优化', '业务抽象']
+          },
+          meituan: {
+            company: '美团',
+            description: '到家事业群',
+            achievements: [
+              '搭建营销活动组件库，沉淀 10+ 复用组件，减少重复开发工作量。',
+              '参与 A/B 实验方案实现，支持多版本页面按配置快速切换。',
+              '协助排查线上问题，优化监控埋点并输出问题复盘。'
+            ],
+            skills: ['React', '前端监控', 'A/B 实验', '组件化', '协同沟通']
+          },
+          shopee: {
+            company: 'Shopee',
+            description: '供应链',
+            achievements: [
+              '参与供应链运营平台的多个模块开发，提升内部流程效率。',
+              '将零散页面重构为可配置表单与表格，提高需求响应速度。',
+              '与后端约定统一的数据接口规范，降低前后端联调成本。'
+            ],
+            skills: ['React', '中后台设计', '表单与表格', '可配置化', '跨时区协作']
+          },
+          zhihuitong: {
+            company: '智慧通',
+            description: '数字教育',
+            achievements: [
+              '参与教务管理、课程排课等业务需求实现，打磨交互体验。',
+              '针对弱网环境做加载与占位优化，减少页面白屏时间。',
+              '帮助团队整理组件库使用规范，降低样式与交互分裂。'
+            ],
+            skills: ['React', 'Tailwind CSS', '教育行业理解', '体验优化', '设计协作']
+          }
+        }
       },
       projects: {
         titleWord: '项目',
@@ -148,8 +193,53 @@ const resources = {
         }
       },
       team: {
-        title: 'Internship Experience',
-        subtitle: 'Internship experience from different companies'
+        titleWord: 'Work',
+        title: 'Experience',
+        subtitle: 'Review several work experiences through a timeline, clearly explaining "what I did" and "what problems I solved".',
+        companyHomepage: 'Company',
+        position: 'Frontend Development Intern',
+        experiences: {
+          oasyce: {
+            company: 'Oasyce',
+            description: '',
+            achievements: [
+              'Responsible for refactoring core pages of home delivery business, optimizing first-screen loading time by approximately 30%.',
+              'Organized interaction flows based on business data, and promoted the implementation of experience improvements for 2 important features.',
+              'Frequently communicated with backend, product teams to ensure features were delivered on time and observable.'
+            ],
+            skills: ['React', 'TypeScript', 'Frontend Engineering', 'Performance Optimization', 'Business Abstraction']
+          },
+          meituan: {
+            company: 'Meituan',
+            description: 'CLC',
+            achievements: [
+              'Built a marketing activity component library, accumulated 10+ reusable components, reducing redundant development work.',
+              'Participated in A/B testing implementation, supporting quick switching between multiple page versions via configuration.',
+              'Assisted in troubleshooting production issues, optimized monitoring and produced post-mortem reports.'
+            ],
+            skills: ['React', 'Frontend Monitoring', 'A/B Testing', 'Componentization', 'Cross-functional Communication']
+          },
+          shopee: {
+            company: 'Shopee',
+            description: 'Supply Chain',
+            achievements: [
+              'Participated in developing multiple modules of the supply chain operations platform, improving internal process efficiency.',
+              'Refactored scattered pages into configurable forms and tables, increasing demand response speed.',
+              'Established unified data interface standards with backend, reducing frontend-backend integration costs.'
+            ],
+            skills: ['React', 'Admin Panel Design', 'Forms & Tables', 'Configurability', 'Cross-timezone Collaboration']
+          },
+          zhihuitong: {
+            company: 'Zhihuitong',
+            description: 'Digital Education',
+            achievements: [
+              'Participated in implementing business requirements such as academic management and course scheduling, refining interaction experience.',
+              'Optimized loading and placeholders for weak network environments, reducing page white screen time.',
+              'Helped the team organize component library usage standards, reducing style and interaction fragmentation.'
+            ],
+            skills: ['React', 'Tailwind CSS', 'Education Industry Understanding', 'Experience Optimization', 'Design Collaboration']
+          }
+        }
       },
       projects: {
         titleWord: 'Projects',
