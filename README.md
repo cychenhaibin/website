@@ -99,7 +99,7 @@ npm run deploy:cloudflare
 ```
 
 **访问地址：**
-`https://shopee-website.pages.dev`
+`https://website.pages.dev`
 
 ### 📚 详细部署说明
 
