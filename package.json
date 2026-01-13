@@ -8,7 +8,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:github": "DEPLOY_TARGET=github npm run build",
+    "build:cloudflare": "DEPLOY_TARGET=cloudflare npm run build",
     "preview": "vite preview",
+    "deploy:cloudflare": "npm run build:cloudflare && wrangler pages deploy dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "type-check": "tsc --noEmit"
   },

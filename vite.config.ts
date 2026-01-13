@@ -4,7 +4,8 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: process.env.NODE_ENV === 'production' ? '/website/' : '/',
+  // GitHub Pages 使用 /website/，Cloudflare Pages 使用 /
+  base: process.env.DEPLOY_TARGET === 'github' ? '/website/' : '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
