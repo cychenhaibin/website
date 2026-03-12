@@ -70,32 +70,41 @@ yarn preview
 pnpm preview
 ```
 
-## 🚀 部署到 GitHub Pages
+## 🚀 双平台部署
 
-### 自动部署（推荐）
+本项目支持同时部署到 **GitHub Pages** 和 **Cloudflare Pages**！
 
-项目已配置 GitHub Actions 自动部署。当你推送代码到 `main` 分支时，会自动构建并部署到 GitHub Pages。
+### GitHub Pages（自动部署）
 
-**部署前准备：**
-1. 确保仓库名称为 `website`
-2. 在 GitHub 仓库设置中启用 Pages，选择 `gh-pages` 分支作为源
+项目已配置 GitHub Actions，推送代码到 `main` 分支即可自动部署。
 
-**快速部署：**
+**快速开始：**
 ```bash
-# 使用部署脚本
-./deploy.sh
-
-# 或手动部署
-npm run build
-git add .
-git commit -m "🚀 部署更新"
-git push origin main
+git push origin main  # 自动触发部署
 ```
 
 **访问地址：**
 `https://cychenhaibin.github.io/website`
 
-详细部署说明请查看 [DEPLOYMENT.md](./DEPLOYMENT.md)
+### Cloudflare Pages（更快的全球 CDN）
+
+**方式一：自动部署（推荐）**
+1. 访问 [Cloudflare Dashboard](https://dash.cloudflare.com/)
+2. Workers & Pages → Create → Connect to Git
+3. 配置：Build command: `npm run build:cloudflare`，Output: `dist`
+
+**方式二：手动部署**
+```bash
+npm run deploy:cloudflare
+```
+
+**访问地址：**
+`https://website.pages.dev`
+
+### 📚 详细部署说明
+
+- 完整文档：[DEPLOYMENT.md](./DEPLOYMENT.md)
+- 快速指南：[DEPLOY_QUICK_START.md](./DEPLOY_QUICK_START.md)
 
 ## 📁 项目结构
 
