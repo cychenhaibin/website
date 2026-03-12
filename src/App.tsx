@@ -9,6 +9,7 @@ import Projects from './pages/Projects'
 import Team from './pages/Team'
 import GitHub from './pages/GitHub'
 import AntigravityParticles from './components/AntigravityParticles'
+import FloatingSocials from './components/FloatingSocials'
 
 // 注册GSAP插件
 gsap.registerPlugin(ScrollTrigger)
@@ -38,6 +39,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
+        <FloatingSocials />
         <AntigravityParticles />
         <Header />
         <main>
