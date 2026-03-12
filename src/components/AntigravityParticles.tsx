@@ -1,167 +1,256 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react';
+
+// "antigravity.google" style particle effect:
+// Particles form a shape (like `{ }`) and scatter/repel on mouse interaction.
+// Only active on the Home route ('/')
 
 interface Particle {
-  x: number
-  y: number
-  vx: number
-  vy: number
-  angle: number
-  speed: number
-  orbitRadius: number
-  size: number
-  parallax: number
-  color: string
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  baseX: number;
+  baseY: number;
+  color: string;
+  size: number;
+  isFree: boolean; // some particles just wander around
+  angle: number;
+  speed: number;
 }
 
-const BASE_COLORS = ['#c8dbff', '#a7c1ff', '#7fa3f7', '#4f8ff0']
-
-const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value))
-
 const AntigravityParticles: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
-  const particlesRef = useRef<Particle[]>([])
-  const rafRef = useRef<number>()
-  const pointerRef = useRef({ x: 0, y: 0, active: false })
-  const centerRef = useRef({ x: 0, y: 0 })
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const rafRef = useRef<number>();
+  const particlesRef = useRef<Particle[]>([]);
+  const isHomeRef = useRef(true);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const checkScroll = () => {
+      // If we are scrolled down less than half the screen height, we are on the Home section.
+      isHomeRef.current = window.scrollY < window.innerHeight * 0.5;
+    };
+    checkScroll();
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    return () => window.removeEventListener('scroll', checkScroll);
+  }, []);
 
-    const DPR = Math.min(2, window.devicePixelRatio || 1)
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    if (!ctx) return;
 
-    const resize = () => {
-      const { innerWidth: w, innerHeight: h } = window
-      canvas.width = Math.floor(w * DPR)
-      canvas.height = Math.floor(h * DPR)
-      canvas.style.width = `${w}px`
-      canvas.style.height = `${h}px`
-      ctx.setTransform(DPR, 0, 0, DPR, 0, 0)
-      centerRef.current.x = w / 2
-      centerRef.current.y = h / 2
-    }
-    resize()
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const DPR = Math.min(2, window.devicePixelRatio || 1);
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const maxParticles = prefersReducedMotion ? 120 : 320
-    const minParticles = prefersReducedMotion ? 40 : 120
-    const dynamicCount = clamp(Math.floor((window.innerWidth * window.innerHeight) / 5000), minParticles, maxParticles)
+    const colors = [
+      '#4285F4', // Google Blue (majority)
+      '#4285F4',
+      '#4285F4',
+      '#DB4437', // Red
+      '#F4B400', // Yellow
+      '#0F9D58', // Green
+      '#333333', // Dark
+    ];
 
-    const createParticle = (): Particle => {
-      const range = Math.max(window.innerWidth, window.innerHeight) * 0.6
-      return {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        vx: 0,
-        vy: 0,
-        angle: Math.random() * Math.PI * 2,
-        speed: 0.4 + Math.random() * 0.8,
-        orbitRadius: 30 + Math.random() * range,
-        size: prefersReducedMotion ? 0.7 + Math.random() * 0.5 : 0.9 + Math.random() * 0.7,
-        parallax: 0.2 + Math.random() * 0.6,
-        color: BASE_COLORS[Math.floor(Math.random() * BASE_COLORS.length)],
-      }
-    }
+    const initParticles = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * DPR;
+      canvas.height = height * DPR;
+      ctx.scale(DPR, DPR);
 
-    particlesRef.current = Array.from({ length: dynamicCount }, createParticle)
+      particlesRef.current = [];
 
-    const handlePointerMove = (x: number, y: number) => {
-      pointerRef.current.x = x
-      pointerRef.current.y = y
-      pointerRef.current.active = true
-    }
+      // We use an offscreen canvas to map out the `{ }` shape
+      const offscreen = document.createElement('canvas');
+      const offCtx = offscreen.getContext('2d', { willReadFrequently: true });
+      if (!offCtx) return;
 
-    const handleMouseMove = (event: MouseEvent) => handlePointerMove(event.clientX, event.clientY)
-    const handleTouchMove = (event: TouchEvent) => {
-      const touch = event.touches[0]
-      if (touch) handlePointerMove(touch.clientX, touch.clientY)
-    }
+      offscreen.width = width;
+      offscreen.height = height;
 
-    const handlePointerLeave = () => {
-      pointerRef.current.active = false
-    }
+      // Draw the shape to extract pixel data
+      // Adjusted spaces between brackets for a tighter fit around the center text
+      const text = '{   }'; 
+      const fontSize = Math.min(width * 0.4, 450); // Responsive size
+      offCtx.font = `bold ${fontSize}px "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
+      offCtx.textAlign = 'center';
+      offCtx.textBaseline = 'middle';
+      offCtx.fillStyle = 'black';
+      offCtx.fillText(text, width / 2, height / 2);
 
-    window.addEventListener('mousemove', handleMouseMove)
-    window.addEventListener('touchmove', handleTouchMove, { passive: true })
-    window.addEventListener('mouseleave', handlePointerLeave)
-    window.addEventListener('touchend', handlePointerLeave)
-    window.addEventListener('resize', resize)
+      const imgData = offCtx.getImageData(0, 0, width, height);
+      const data = imgData.data;
 
-    const animate = () => {
-      const { innerWidth: width, innerHeight: height } = window
-      ctx.clearRect(0, 0, width, height)
+      // Density control based on screen size
+      const step = width < 768 ? Math.floor(6) : Math.floor(8);
 
-      const pointer = pointerRef.current
-      const center = centerRef.current
-      // 鼠标不再“弹回”屏幕中心，而是停留在最后一次交互附近
-      const targetX = pointer.active ? pointer.x : center.x
-      const targetY = pointer.active ? pointer.y : center.y
+      for (let y = 0; y < height; y += step) {
+        for (let x = 0; x < width; x += step) {
+          const index = (y * width + x) * 4;
+          const alpha = data[index + 3];
 
-      center.x += (targetX - center.x) * 0.08
-      center.y += (targetY - center.y) * 0.08
+          // If pixel is sufficiently opaque
+          if (alpha > 128) {
+            // Add some randomness so it's not a perfect grid
+            const offsetX = (Math.random() - 0.5) * step;
+            const offsetY = (Math.random() - 0.5) * step;
+            
+            const pX = x + offsetX;
+            const pY = y + offsetY;
 
-      const particles = particlesRef.current
-      const maxRadius = Math.max(width, height) * 0.75
-
-      for (const particle of particles) {
-        particle.angle += particle.speed * 0.0015
-        particle.orbitRadius += particle.speed * 0.12
-
-        if (particle.orbitRadius > maxRadius) {
-          particle.orbitRadius = 20 + Math.random() * 80
-          particle.angle = Math.random() * Math.PI * 2
-        }
-
-        const swirl = 1 + Math.sin(particle.angle * 3) * 0.08
-        const orbitX = center.x + Math.cos(particle.angle + particle.parallax * 0.5) * particle.orbitRadius * swirl
-        const orbitY = center.y + Math.sin(particle.angle + particle.parallax * 0.5) * particle.orbitRadius * swirl
-
-        particle.vx += (orbitX - particle.x) * 0.1
-        particle.vy += (orbitY - particle.y) * 0.1
-
-        if (pointer.active) {
-          const dx = particle.x - pointer.x
-          const dy = particle.y - pointer.y
-          const distance = Math.sqrt(dx * dx + dy * dy) || 1
-          const influenceRadius = 140
-          if (distance < influenceRadius) {
-            const repel = (1 - distance / influenceRadius) * 0.6
-            particle.vx += (dx / distance) * repel * 0.6
-            particle.vy += (dy / distance) * repel * 0.6
+            particlesRef.current.push({
+              x: Math.random() * width, // Start randomly
+              y: Math.random() * height,
+              vx: 0,
+              vy: 0,
+              baseX: pX,
+              baseY: pY,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              size: Math.random() * 1.5 + 0.5,
+              isFree: false,
+              angle: Math.random() * Math.PI * 2,
+              speed: 0.1 + Math.random() * 0.5,
+            });
           }
         }
-
-        particle.vx *= 0.9
-        particle.vy *= 0.9
-        particle.x += particle.vx
-        particle.y += particle.vy
       }
 
-      for (const particle of particles) {
-        ctx.fillStyle = particle.color
-        ctx.globalAlpha = 0.7
-        ctx.beginPath()
-        ctx.arc(particle.x, particle.y, particle.size * (pointer.active ? 2.2 : 1.8), 0, Math.PI * 2)
-        ctx.fill()
+      // Add wandering "free" particles (ambient dust)
+      const freeCount = width < 768 ? 100 : 250;
+      for (let i = 0; i < freeCount; i++) {
+        particlesRef.current.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: 0,
+          vy: 0,
+          baseX: Math.random() * width,
+          baseY: Math.random() * height,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          size: Math.random() * 1.5 + 0.5,
+          isFree: true,
+          angle: Math.random() * Math.PI * 2,
+          speed: 0.2 + Math.random() * 0.8,
+        });
       }
-      ctx.globalAlpha = 1
+    };
 
-      rafRef.current = requestAnimationFrame(animate)
-    }
+    initParticles();
 
-    rafRef.current = requestAnimationFrame(animate)
+    // Mouse interaction
+    let mouseX = -1000;
+    let mouseY = -1000;
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+    const handleMouseLeave = () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    };
+    
+    // Touch interaction
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length > 0) {
+        mouseX = e.touches[0].clientX;
+        mouseY = e.touches[0].clientY;
+      }
+    };
+    const handleTouchEnd = () => {
+      mouseX = -1000;
+      mouseY = -1000;
+    };
+
+    window.addEventListener('resize', initParticles);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('touchmove', handleTouchMove, { passive: true });
+    window.addEventListener('touchend', handleTouchEnd);
+
+    // Animation physics parameters
+    const MOUSE_RADIUS = 150;
+    const MOUSE_FORCE = 0.8;
+    const RETURN_SPEED = 0.08;
+    const FRICTION = 0.85;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, width, height);
+      const particles = particlesRef.current;
+      const isHome = isHomeRef.current;
+
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        if (p.isFree || !isHome) {
+          // Free drifting logic: wander around slowly
+          p.vx += Math.cos(p.angle) * p.speed * 0.05;
+          p.vy += Math.sin(p.angle) * p.speed * 0.05;
+
+          // Slowly change angle
+          p.angle += (Math.random() - 0.5) * 0.1;
+
+          if (p.x < 0) p.x += width;
+          if (p.x > width) p.x -= width;
+          if (p.y < 0) p.y += height;
+          if (p.y > height) p.y -= height;
+        } else {
+          // Target attraction logic for the shape (only on Home)
+          const dxTarget = p.baseX - p.x;
+          const dyTarget = p.baseY - p.y;
+          p.vx += dxTarget * RETURN_SPEED;
+          p.vy += dyTarget * RETURN_SPEED;
+        }
+
+        // Mouse repulsion logic applies to ALL particles
+        const dxMouse = p.x - mouseX;
+        const dyMouse = p.y - mouseY;
+        const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+
+        if (distMouse < MOUSE_RADIUS) {
+          // The closer to mouse, the stronger the push
+          const force = (MOUSE_RADIUS - distMouse) / MOUSE_RADIUS;
+          const pushX = (dxMouse / distMouse) * force * MOUSE_FORCE * 15;
+          const pushY = (dyMouse / distMouse) * force * MOUSE_FORCE * 15;
+          
+          p.vx += pushX;
+          p.vy += pushY;
+        }
+
+        // Add a slight baseline wander even when returning to shape to make it feel alive
+        if (!p.isFree && isHome) {
+            p.vx += (Math.random() - 0.5) * 0.5;
+            p.vy += (Math.random() - 0.5) * 0.5;
+        }
+
+        // Apply physics
+        p.vx *= FRICTION;
+        p.vy *= FRICTION;
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Render particle
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    animate();
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('touchmove', handleTouchMove)
-      window.removeEventListener('mouseleave', handlePointerLeave)
-      window.removeEventListener('touchend', handlePointerLeave)
-      window.removeEventListener('resize', resize)
-      if (rafRef.current) cancelAnimationFrame(rafRef.current)
-    }
-  }, [])
+      window.removeEventListener('resize', initParticles);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
 
   return (
     <canvas
@@ -174,9 +263,10 @@ const AntigravityParticles: React.FC = () => {
         height: '100%',
         zIndex: -1,
         pointerEvents: 'none',
+        background: '#ffffff', // White background
       }}
     />
-  )
-}
+  );
+};
 
-export default AntigravityParticles
+export default AntigravityParticles;
