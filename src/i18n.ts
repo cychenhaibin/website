@@ -48,7 +48,7 @@ const resources = {
       team: {
         titleWord: '工作',
         title: '经历',
-        subtitle: '用时间轴的方式回顾几段工作，把「做过什么」和「解决了什么问题」讲清楚。',
+        subtitle: '实习 && 工作',
         companyHomepage: '公司主页',
         position: '前端开发实习生',
         experiences: {
@@ -195,7 +195,7 @@ const resources = {
       team: {
         titleWord: 'Work',
         title: 'Experience',
-        subtitle: 'Review several work experiences through a timeline, clearly explaining "what I did" and "what problems I solved".',
+        subtitle: 'Intern && Work',
         companyHomepage: 'Company',
         position: 'Frontend Development Intern',
         experiences: {
