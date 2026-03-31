@@ -13,7 +13,7 @@ const Header: React.FC = () => {
       setIsScrolled(window.scrollY > 50)
 
       // 检测当前活跃的section
-      const sections = ['home', 'team', 'projects', 'github']
+      const sections = ['home', 'services', 'team', 'cases', 'projects', 'github', 'contact']
       const scrollPosition = window.scrollY + 100
 
       for (const section of sections) {
@@ -54,9 +54,12 @@ const Header: React.FC = () => {
 
   const navItems = [
     { id: 'home', label: t('nav.home') },
+    { id: 'services', label: t('nav.services') },
     { id: 'team', label: t('nav.team') },
+    { id: 'cases', label: t('nav.cases') },
     { id: 'projects', label: t('nav.projects') },
-    { id: 'github', label: t('nav.github') }
+    { id: 'github', label: t('nav.github') },
+    { id: 'contact', label: t('nav.contact') }
   ]
 
   const scrollToSection = (sectionId: string) => {

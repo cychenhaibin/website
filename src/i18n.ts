@@ -6,16 +6,25 @@ const resources = {
     translation: {
       nav: {
         home: '首页',
+        services: '服务',
         team: '经历',
+        cases: '案例',
         projects: '项目',
-        github: 'GitHub'
+        github: 'GitHub',
+        contact: '联系'
       },
       home: {
+        eyebrow: '',
         hero: {
+          badge: '前端工程师 / AI 应用开发者 / 开源作者',
           title1: 'Camila',
           title2: 'Site',
           subtitleLine1: '重庆邮电大学 - 计算机科学与技术',
-          subtitleLine2: '热爱前端开发，追求极致用户体验'
+          subtitleLine2: '热爱前端开发，追求极致用户体验',
+          summary: '专注 Web 产品体验、AI 应用落地与个人品牌官网定制，能够从想法梳理、界面设计到前端实现完整交付。',
+          primaryCta: '发起合作',
+          secondaryCta: '查看服务',
+          availability: '当前开放：个人官网、活动页、AI 应用前端、技术顾问合作'
         },
         features: {
           title: '的语雀有什么',
@@ -45,13 +54,47 @@ const resources = {
           knowledgeBases: '知识库'
         }
       },
+      services: {
+        eyebrow: 'Services',
+        title: '合作服务',
+        subtitle: '如果你需要一个可靠的前端伙伴，我可以从 0 到 1 帮你把产品页面做出来，也可以接入现有团队协作交付。',
+        items: {
+          website: {
+            title: '个人官网 / 品牌站',
+            description: '面向个人 IP、工作室或小团队，打造更有辨识度的官网与作品展示页面。'
+          },
+          ai: {
+            title: 'AI 应用前端',
+            description: '聚焦对话、工作流、知识库、智能表单等 AI 场景，把产品想法快速做成可用界面。'
+          },
+          activity: {
+            title: '活动页 / 营销页',
+            description: '兼顾视觉表现与转化效率，适合产品发布、招募页、专题页和业务推广页面。'
+          },
+          consultant: {
+            title: '前端顾问支持',
+            description: '帮助梳理组件化、性能优化、交互体验和工程质量，适合短期咨询或阶段性协作。'
+          }
+        }
+      },
       team: {
+        eyebrow: 'Experience',
         titleWord: '工作',
         title: '经历',
         subtitle: '实习 && 工作',
         companyHomepage: '公司主页',
-        position: '前端开发实习生',
+        position: '前端开发',
         experiences: {
+          shopee2: {
+            company: 'Shopee',
+            description: '供应链',
+            achievements: [
+              '参与供应链运营平台的多个模块开发，提升内部流程效率。',
+              '将零散页面重构为可配置表单与表格，提高需求响应速度。',
+              '与后端约定统一的数据接口规范，降低前后端联调成本。'
+            ],
+            skills: ['React', '中后台设计', '表单与表格', '可配置化', '跨时区协作']
+          },
           oasyce: {
             company: '绿洲时空',
             description: '',
@@ -72,7 +115,7 @@ const resources = {
             ],
             skills: ['React', '前端监控', 'A/B 实验', '组件化', '协同沟通']
           },
-          shopee: {
+          shopee1: {
             company: 'Shopee',
             description: '供应链',
             achievements: [
@@ -94,7 +137,35 @@ const resources = {
           }
         }
       },
+      cases: {
+        eyebrow: 'Cases',
+        title: '精选案例',
+        subtitle: '不只是做页面，更关注业务目标、用户体验和可持续迭代。',
+        outcomeLabel: '结果',
+        stackLabel: '技术',
+        items: {
+          brand: {
+            title: '个人品牌官网升级',
+            summary: '将传统作品集重构为更有转化能力的个人官网，突出定位、服务能力与合作路径。',
+            outcome: '让访客更快理解“你是谁、你能做什么、怎么联系你”。',
+            stack: 'React / TypeScript / Tailwind CSS'
+          },
+          ai: {
+            title: 'AI 对话产品界面',
+            summary: '围绕聊天、知识检索和结果展示设计交互结构，兼顾易用性与信息密度。',
+            outcome: '缩短从概念验证到可演示产品的时间，便于快速试错与迭代。',
+            stack: 'React / WebSocket / 多端体验设计'
+          },
+          platform: {
+            title: '中后台业务系统',
+            summary: '参与供应链、教育和本地生活等场景的业务平台开发，沉淀可复用表单、表格与页面结构。',
+            outcome: '提升需求响应速度，降低重复开发成本。',
+            stack: 'React / TypeScript / 工程化'
+          }
+        }
+      },
       projects: {
+        eyebrow: 'Projects',
         titleWord: '项目',
         subtitle: '探索LanshanTeam精心打造的开源项目，每一个都凝聚着我们的技术热情和创新精神',
         viewSource: '查看源码',
@@ -118,6 +189,7 @@ const resources = {
         }
       },
       github: {
+        eyebrow: 'GitHub',
         titleData: '数据',
         subtitle: '实时追踪我们的开源项目表现和社区活跃度',
         totalStars: '总星标数',
@@ -127,6 +199,22 @@ const resources = {
         recentActivity: '最近活动',
         visit: '访问GitHub',
         star: '给个Star'
+      },
+      contact: {
+        eyebrow: 'Contact',
+        title: '联系合作',
+        subtitle: '如果你正在找人一起做官网、活动页、AI 产品前端，或者想聊技术方案，欢迎直接联系我。',
+        availabilityTitle: '合作方式',
+        availabilityValue: '远程协作 / 短期项目 / 顾问支持 / 全职机会',
+        responseTitle: '回复方式',
+        responseValue: '邮件优先，也支持微信进一步沟通',
+        locationTitle: '所在地',
+        locationValue: '中国 · 深圳',
+        primaryCta: '发邮件',
+        secondaryCta: '打开 GitHub',
+        emailLabel: '邮箱',
+        wechatLabel: '微信',
+        note: '如果你已经有明确需求，建议在邮件里附上项目背景、目标时间和参考案例。'
       },
       common: {
         cta: {
@@ -140,7 +228,7 @@ const resources = {
       },
       footer: {
         brand: {
-          description: '热爱前端开发，追求极致用户体验我相信技术的力量可以改变世界。'
+          description: '专注前端开发、AI 应用界面与个人品牌官网定制，用更清晰的产品表达帮助想法落地。'
         },
         quickLinks: '快速链接',
         contactMe: '联系我',
@@ -153,16 +241,25 @@ const resources = {
     translation: {
       nav: {
         home: 'Home',
+        services: 'Services',
         team: 'Experience',
+        cases: 'Cases',
         projects: 'Projects',
-        github: 'GitHub'
+        github: 'GitHub',
+        contact: 'Contact'
       },
       home: {
+        eyebrow: '',
         hero: {
+          badge: 'Frontend Engineer / AI Builder / Open Source Author',
           title1: 'Camila',
           title2: 'Site',
           subtitleLine1: 'CQUPT - Computer Science and Technology',
-          subtitleLine2: 'Passionate about frontend, striving for ultimate UX'
+          subtitleLine2: 'Passionate about frontend, striving for ultimate UX',
+          summary: 'Focused on web product experience, AI application interfaces, and personal brand websites, from structure and design to frontend delivery.',
+          primaryCta: 'Start a Project',
+          secondaryCta: 'View Services',
+          availability: 'Open for personal websites, campaign pages, AI frontend work, and technical consulting'
         },
         features: {
           title: "'s Yuque Highlights",
@@ -192,7 +289,31 @@ const resources = {
           knowledgeBases: 'Knowledge Bases'
         }
       },
+      services: {
+        eyebrow: 'Services',
+        title: 'Services',
+        subtitle: 'If you need a dependable frontend partner, I can build from zero to launch or collaborate inside an existing team.',
+        items: {
+          website: {
+            title: 'Personal Websites',
+            description: 'Official websites and portfolio experiences for individuals, studios, and small teams with a clearer brand voice.'
+          },
+          ai: {
+            title: 'AI Product Frontends',
+            description: 'Interfaces for chat, workflows, knowledge bases, and smart forms that turn product ideas into usable demos quickly.'
+          },
+          activity: {
+            title: 'Campaign Pages',
+            description: 'Launch pages and marketing experiences designed for both visual impact and conversion clarity.'
+          },
+          consultant: {
+            title: 'Frontend Consulting',
+            description: 'Support on component systems, performance, interaction quality, and engineering decisions for focused collaborations.'
+          }
+        }
+      },
       team: {
+        eyebrow: 'Experience',
         titleWord: 'Work',
         title: 'Experience',
         subtitle: 'Intern && Work',
@@ -241,7 +362,35 @@ const resources = {
           }
         }
       },
+      cases: {
+        eyebrow: 'Cases',
+        title: 'Selected Cases',
+        subtitle: 'More than building screens, the focus is on business goals, user experience, and room for iteration.',
+        outcomeLabel: 'Outcome',
+        stackLabel: 'Stack',
+        items: {
+          brand: {
+            title: 'Personal Brand Website Refresh',
+            summary: 'Turned a traditional portfolio into a conversion-oriented personal website with clearer positioning, services, and contact paths.',
+            outcome: 'Help visitors understand who you are, what you do, and how to reach you faster.',
+            stack: 'React / TypeScript / Tailwind CSS'
+          },
+          ai: {
+            title: 'AI Conversation Product UI',
+            summary: 'Designed interaction patterns for chat, retrieval, and result presentation with a balance of usability and information density.',
+            outcome: 'Reduced the time from idea validation to a demo-ready product for fast iteration.',
+            stack: 'React / WebSocket / Multi-device UX'
+          },
+          platform: {
+            title: 'Business Platform Systems',
+            summary: 'Built reusable forms, tables, and page structures for supply chain, education, and local services platforms.',
+            outcome: 'Improved delivery speed and reduced repeated implementation cost.',
+            stack: 'React / TypeScript / Frontend Engineering'
+          }
+        }
+      },
       projects: {
+        eyebrow: 'Projects',
         titleWord: 'Projects',
         subtitle: 'Explore LanshanTeam open-source projects crafted with our passion and innovation',
         viewSource: 'View Source',
@@ -265,6 +414,7 @@ const resources = {
         }
       },
       github: {
+        eyebrow: 'GitHub',
         titleData: 'Stats',
         subtitle: 'Track our OSS performance and community activity in real time',
         totalStars: 'Total Stars',
@@ -274,6 +424,22 @@ const resources = {
         recentActivity: 'Recent Activity',
         visit: 'Visit GitHub',
         star: 'Give a Star'
+      },
+      contact: {
+        eyebrow: 'Contact',
+        title: 'Work With Me',
+        subtitle: 'If you need help on a website, campaign page, AI product frontend, or technical direction, reach out directly.',
+        availabilityTitle: 'Collaboration',
+        availabilityValue: 'Remote work / Short-term projects / Consulting / Full-time opportunities',
+        responseTitle: 'Preferred Reply',
+        responseValue: 'Email first, WeChat available for follow-up communication',
+        locationTitle: 'Location',
+        locationValue: 'Beijing, China',
+        primaryCta: 'Send Email',
+        secondaryCta: 'Open GitHub',
+        emailLabel: 'Email',
+        wechatLabel: 'WeChat',
+        note: 'If you already have a concrete project, include the background, target timeline, and a few references in your email.'
       },
       common: {
         cta: {
@@ -287,7 +453,7 @@ const resources = {
       },
       footer: {
         brand: {
-          description: 'Passionate about frontend development, pursuing ultimate user experience. I believe in the power of technology to change the world.'
+          description: 'Focused on frontend development, AI product interfaces, and personal brand websites that make ideas easier to understand and launch.'
         },
         quickLinks: 'Quick Links',
         contactMe: 'Contact Me',
@@ -313,5 +479,3 @@ i18n
   })
 
 export default i18n
-
-

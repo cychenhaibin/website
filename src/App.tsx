@@ -5,9 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
+import Services from './pages/Services'
 import Projects from './pages/Projects'
 import Team from './pages/Team'
+import Cases from './pages/Cases'
 import GitHub from './pages/GitHub'
+import Contact from './pages/Contact'
 import AntigravityParticles from './components/AntigravityParticles'
 import FloatingSocials from './components/FloatingSocials'
 
@@ -44,9 +47,12 @@ const App: React.FC = () => {
         <Header />
         <main>
           <Home />
+          <Services />
           <Team />
+          <Cases />
           <Projects />
           <GitHub />
+          <Contact />
         </main>
         <Footer />
       </div>

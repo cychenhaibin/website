@@ -181,6 +181,16 @@ const Home: React.FC = () => {
     }
   ]
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
+
   return (
     <div id="home" className="min-h-screen">
       {/* 英雄区域 */}
@@ -190,6 +200,12 @@ const Home: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       >
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <p className="hero-subtitle text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-4">
+            {t('home.eyebrow')}
+          </p>
+          <div className="hero-subtitle inline-flex items-center rounded-full border border-[#4285F4]/20 bg-white/80 px-4 py-2 text-sm text-[#4285F4] shadow-sm mb-6">
+            {t('home.hero.badge')}
+          </div>
           <h1 className="hero-title text-5xl md:text-7xl font-normal mb-6">
             <span className="text-[#4285F4]">{t('home.hero.title1')} </span>
             <span className="text-gray-900">{t('home.hero.title2')}</span>
@@ -199,6 +215,29 @@ const Home: React.FC = () => {
             {t('home.hero.subtitleLine1')}
             <br />
             <span className="text-[#4285F4] font-normal text-xl">{t('home.hero.subtitleLine2')}</span>
+          </p>
+
+          <p className="hero-cta text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+            {t('home.hero.summary')}
+          </p>
+
+          <div className="hero-cta flex flex-row gap-4 justify-center mb-6">
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-4 py-2 text-white hover:bg-[#357ae8] transition-colors"
+            >
+              {t('home.hero.primaryCta')}
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-gray-900 hover:border-[#4285F4] hover:text-[#4285F4] transition-colors"
+            >
+              {t('home.hero.secondaryCta')}
+            </button>
+          </div>
+
+          <p className="hero-cta text-sm text-gray-500 font-light mb-8">
+            {t('home.hero.availability')}
           </p>
 
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center">

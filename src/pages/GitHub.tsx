@@ -296,9 +296,12 @@ const GitHub: React.FC = () => {
   }, [stats, loading])
 
   return (
-    <div id="github" className="min-h-screen">
+    <div id="github">
       {/* 页面标题 */}
       <section className="pt-20 pb-10 px-4 text-center">
+        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
+          {t("github.eyebrow")}
+        </p>
         <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-6">
           GitHub{" "}
           <span className="text-gradient glow text-gray-900">

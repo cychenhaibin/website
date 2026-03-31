@@ -21,6 +21,21 @@ interface InternshipExperience {
 
 const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
+    id: 0,
+    company: t("team.experiences.shopee1.company"),
+    position: t("team.position"),
+    duration: "2026.01 - 至今",
+    description: t("team.experiences.shopee1.description"),
+    companyUrl: undefined,
+    color: "from-orange-400 to-red-500",
+    bgGradient: "from-orange-500/40 via-red-400/10 to-rose-400/30",
+    logo: shopeeLogo,
+    achievements: t("team.experiences.shokee1.achievements", {
+      returnObjects: true,
+    }),
+    skills: t("team.experiences.shokee1.skills", { returnObjects: true }),
+  },
+  {
     id: 1,
     company: t("team.experiences.oasyce.company"),
     position: t("team.position"),
@@ -52,7 +67,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
   },
   {
     id: 3,
-    company: t("team.experiences.shopee.company"),
+    company: t("team.experiences.shopee1.company"),
     position: t("team.position"),
     duration: "2025.03 - 2025.06",
     description: t("team.experiences.shopee.description"),
@@ -90,6 +105,9 @@ const Team: React.FC = () => {
     <div id="team">
       {/* 标题区域 */}
       <section className="pt-20 pb-10 px-4 text-center">
+        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
+          {t("team.eyebrow")}
+        </p>
         <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4">
           <span className="text-[#4285F4] font-semibold">
             {t("team.titleWord")}

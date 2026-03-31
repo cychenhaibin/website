@@ -101,6 +101,9 @@ const Projects: React.FC = () => {
     <div id="projects">
       {/* 页面标题 */}
       <section className="pt-20 pb-10 px-4 text-center">
+        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
+          {t("projects.eyebrow")}
+        </p>
         <h1 className="text-4xl md:text-5xl font-normal text-[#4285F4] mb-6">
           Camila{" "}
           <span className="text-gradient glow text-gray-900">

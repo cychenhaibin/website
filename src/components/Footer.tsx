@@ -1,11 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import CamilaLogo from './CamilaLogo'
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear()
   const { t } = useTranslation()
+
+  const quickLinks = [
+    { id: 'home', label: t('nav.home') },
+    { id: 'services', label: t('nav.services') },
+    { id: 'cases', label: t('nav.cases') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'contact', label: t('nav.contact') }
+  ]
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  }
 
   return (
     <footer className="border-t border-gray-200">
@@ -61,26 +78,16 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-normal text-gray-900 mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
-                  {t('nav.home')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
-                  {t('nav.projects')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/team" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
-                  {t('nav.team')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/github" className="text-gray-600 hover:text-[#4285F4] transition-colors font-light">
-                  {t('nav.github')}
-                </Link>
-              </li>
+              {quickLinks.map((link) => (
+                <li key={link.id}>
+                  <button
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-gray-600 hover:text-[#4285F4] transition-colors font-light"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -88,10 +95,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-normal text-gray-900 mb-4">{t('footer.contactMe')}</h3>
             <ul className="space-y-2 text-gray-600 font-light">
-              <li>📧 haibinchenleo@outlook.com</li>
-              <li> +86 156 9688 6898</li>
-              <li>🌐 www.Camila.com</li>
-              <li>📍 中国 · 北京</li>
+              <li>haibinchenleo@outlook.com</li>
+              <li>+86 156 9688 6898</li>
+              <li>cychenhaibin.github.io/website</li>
+              <li>中国 · 北京</li>
             </ul>
           </div>
         </div>
