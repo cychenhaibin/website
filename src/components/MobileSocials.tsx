@@ -71,65 +71,56 @@ const socialLinks = [
   }
 ];
 
-const FloatingSocials: React.FC = () => {
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+const MobileSocials: React.FC = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="hidden lg:flex fixed top-1/2 -translate-y-1/2 right-6 z-[99] flex-col gap-4">
-      {socialLinks.map((link, index) => (
-        <div
-          key={link.name}
-          className="relative group flex items-center"
-          onMouseEnter={() => setHoveredLink(link.name)}
-          onMouseLeave={() => setHoveredLink(null)}
-        >
-          <motion.a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: index * 0.1, type: "spring", stiffness: 300, damping: 20 }}
-            className={`w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 text-gray-500 ${link.color}`}
-          >
-            {link.icon}
-          </motion.a>
+    <div className="lg:hidden">
+      <motion.button
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="fixed bottom-6 right-4 z-[100] w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-lg hover:shadow-md transition-all duration-300 text-gray-500 hover:text-[#4285F4]"
+      >
+        {isExpanded ? (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        ) : (
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+          </svg>
+        )}
+      </motion.button>
 
-          <AnimatePresence>
-            {hoveredLink === link.name && (
-              <motion.div
-                initial={{ opacity: 0, x: 10, scale: 0.9 }}
-                animate={{ opacity: 1, x: -8, scale: 1 }}
-                exit={{ opacity: 0, x: 10, scale: 0.9 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                className="absolute right-full origin-right z-50 pointer-events-none pr-2"
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ type: "spring", stiffness: 300, damping: 25 }}
+            className="fixed bottom-20 right-4 z-[99] flex flex-col gap-1 bg-white/95 backdrop-blur-sm p-1 rounded-3xl border border-gray-200/50 shadow-lg"
+          >
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.name}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className={`w-10 h-10 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 text-gray-500 ${link.color}`}
               >
-                {link.qr ? (
-                  <div className="bg-white p-3 rounded-2xl shadow-xl border border-gray-100 flex flex-col items-center relative pointer-events-auto">
-                    {link.qrImage ? (
-                      <div className="w-32 h-32 mb-2 bg-white rounded-lg overflow-hidden flex items-center justify-center border border-gray-100/50 flex-shrink-0">
-                        <img src={link.qrImage} alt={`${link.name} QR Code`} className="w-full h-full object-contain" />
-                      </div>
-                    ) : (
-                      <div className="w-32 h-32 bg-gray-50 border border-dashed border-gray-200 rounded-lg flex items-center justify-center text-xs text-gray-400 mb-2 flex-shrink-0">
-                        二维码
-                      </div>
-                    )}
-                    <span className="text-sm font-medium text-gray-700">{link.name}</span>
-                  </div>
-                ) : (
-                  <div className="bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium shadow-lg whitespace-nowrap">
-                    {link.name}
-                    <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45 transform origin-center"></div>
-                  </div>
-                )}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
+                {link.icon}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
-export default FloatingSocials;
+export default MobileSocials;

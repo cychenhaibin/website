@@ -13,6 +13,7 @@ import GitHub from './pages/GitHub'
 import Contact from './pages/Contact'
 import AntigravityParticles from './components/AntigravityParticles'
 import FloatingSocials from './components/FloatingSocials'
+import MobileSocials from './components/MobileSocials'
 
 // 注册GSAP插件
 gsap.registerPlugin(ScrollTrigger)
@@ -43,6 +44,7 @@ const App: React.FC = () => {
     <Router>
       <div className="App">
         <FloatingSocials />
+        <MobileSocials />
         <AntigravityParticles />
         <Header />
         <main>
