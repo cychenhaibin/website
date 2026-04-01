@@ -73,8 +73,8 @@ const AntigravityParticles: React.FC = () => {
 
       // Draw the shape to extract pixel data
       // Adjusted spaces between brackets for a tighter fit around the center text
-      const text = '{   }'; 
-      const fontSize = Math.min(width * 0.4, 450); // Responsive size
+      const text = '{     }'; 
+      const fontSize = Math.min(width * 0.45, 550); // Responsive size
       offCtx.font = `bold ${fontSize}px "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`;
       offCtx.textAlign = 'center';
       offCtx.textBaseline = 'middle';

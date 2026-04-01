@@ -21,7 +21,7 @@ const resources = {
           title2: 'Site',
           subtitleLine1: '重庆邮电大学 - 计算机科学与技术',
           subtitleLine2: '热爱前端开发，追求极致用户体验',
-          summary: '专注 Web 产品体验、AI 应用落地与个人品牌官网定制，能够从想法梳理、界面设计到前端实现完整交付。',
+          summary: '专注 Web 产品、AI 应用与个人官网定制，完整交付。',
           primaryCta: '发起合作',
           secondaryCta: '查看服务',
           availability: '当前开放：个人官网、活动页、AI 应用前端、技术顾问合作'
@@ -256,7 +256,7 @@ const resources = {
           title2: 'Site',
           subtitleLine1: 'CQUPT - Computer Science and Technology',
           subtitleLine2: 'Passionate about frontend, striving for ultimate UX',
-          summary: 'Focused on web product experience, AI application interfaces, and personal brand websites, from structure and design to frontend delivery.',
+          summary: 'Focused on web, AI apps, and personal websites, end-to-end delivery.',
           primaryCta: 'Start a Project',
           secondaryCta: 'View Services',
           availability: 'Open for personal websites, campaign pages, AI frontend work, and technical consulting'
@@ -434,7 +434,7 @@ const resources = {
         responseTitle: 'Preferred Reply',
         responseValue: 'Email first, WeChat available for follow-up communication',
         locationTitle: 'Location',
-        locationValue: 'Beijing, China',
+        locationValue: 'Shenzhen, China',
         primaryCta: 'Send Email',
         secondaryCta: 'Open GitHub',
         emailLabel: 'Email',

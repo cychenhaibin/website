@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
               <li>haibinchenleo@outlook.com</li>
               <li>+86 156 9688 6898</li>
               <li>cychenhaibin.github.io/website</li>
-              <li>中国 · 北京</li>
+              <li>{t('contact.locationValue')}</li>
             </ul>
           </div>
         </div>

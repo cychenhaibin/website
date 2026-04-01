@@ -200,9 +200,9 @@ const Home: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
       >
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <p className="hero-subtitle text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-4">
+          {/* <p className="hero-subtitle text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-4">
             {t('home.eyebrow')}
-          </p>
+          </p> */}
           <div className="hero-subtitle inline-flex items-center rounded-full border border-[#4285F4]/20 bg-white/80 px-4 py-2 text-sm text-[#4285F4] shadow-sm mb-6">
             {t('home.hero.badge')}
           </div>
