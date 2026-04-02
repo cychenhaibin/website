@@ -56,7 +56,8 @@ const resources = {
       },
       services: {
         eyebrow: 'Services',
-        title: '合作服务',
+        titleWord: '合作',
+        title: '服务',
         subtitle: '如果你需要一个可靠的前端伙伴，我可以从 0 到 1 帮你把产品页面做出来，也可以接入现有团队协作交付。',
         items: {
           website: {
@@ -139,7 +140,8 @@ const resources = {
       },
       cases: {
         eyebrow: 'Cases',
-        title: '精选案例',
+        titleWord: '精选',
+        title: '案例',
         subtitle: '不只是做页面，更关注业务目标、用户体验和可持续迭代。',
         outcomeLabel: '结果',
         stackLabel: '技术',
@@ -166,8 +168,9 @@ const resources = {
       },
       projects: {
         eyebrow: 'Projects',
-        titleWord: '项目',
-        subtitle: '探索LanshanTeam精心打造的开源项目，每一个都凝聚着我们的技术热情和创新精神',
+        titleWord: 'Camila',
+        title: '项目',
+        subtitle: '探索精心打造的开源项目，每一个都凝聚着技术热情和创新精神',
         viewSource: '查看源码',
         items: {
           cube: {
@@ -190,6 +193,7 @@ const resources = {
       },
       github: {
         eyebrow: 'GitHub',
+        titleWord: 'GitHub',
         titleData: '数据',
         subtitle: '实时追踪我们的开源项目表现和社区活跃度',
         totalStars: '总星标数',
@@ -202,7 +206,8 @@ const resources = {
       },
       contact: {
         eyebrow: 'Contact',
-        title: '联系合作',
+        titleWord: '联系',
+        title: '合作',
         subtitle: '如果你正在找人一起做官网、活动页、AI 产品前端，或者想聊技术方案，欢迎直接联系我。',
         availabilityTitle: '合作方式',
         availabilityValue: '远程协作 / 短期项目 / 顾问支持 / 全职机会',
@@ -291,6 +296,7 @@ const resources = {
       },
       services: {
         eyebrow: 'Services',
+        titleWord: 'Our',
         title: 'Services',
         subtitle: 'If you need a dependable frontend partner, I can build from zero to launch or collaborate inside an existing team.',
         items: {
@@ -364,7 +370,8 @@ const resources = {
       },
       cases: {
         eyebrow: 'Cases',
-        title: 'Selected Cases',
+        titleWord: 'Selected',
+        title: 'Cases',
         subtitle: 'More than building screens, the focus is on business goals, user experience, and room for iteration.',
         outcomeLabel: 'Outcome',
         stackLabel: 'Stack',
@@ -391,8 +398,9 @@ const resources = {
       },
       projects: {
         eyebrow: 'Projects',
-        titleWord: 'Projects',
-        subtitle: 'Explore LanshanTeam open-source projects crafted with our passion and innovation',
+        titleWord: 'Camila',
+        title: 'Projects',
+        subtitle: 'Explore crafted open-source projects, each embodying technical passion and innovation',
         viewSource: 'View Source',
         items: {
           cube: {
@@ -415,6 +423,7 @@ const resources = {
       },
       github: {
         eyebrow: 'GitHub',
+        titleWord: 'GitHub',
         titleData: 'Stats',
         subtitle: 'Track our OSS performance and community activity in real time',
         totalStars: 'Total Stars',
@@ -427,7 +436,8 @@ const resources = {
       },
       contact: {
         eyebrow: 'Contact',
-        title: 'Work With Me',
+        titleWord: 'Work',
+        title: 'With Me',
         subtitle: 'If you need help on a website, campaign page, AI product frontend, or technical direction, reach out directly.',
         availabilityTitle: 'Collaboration',
         availabilityValue: 'Remote work / Short-term projects / Consulting / Full-time opportunities',

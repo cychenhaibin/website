@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { useTranslation } from "react-i18next";
+import SectionHeader from "../components/SectionHeader";
 
 interface Project {
   id: number;
@@ -100,19 +101,14 @@ const Projects: React.FC = () => {
   return (
     <div id="projects">
       {/* 页面标题 */}
-      <section className="pt-20 pb-10 px-4 text-center">
-        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
-          {t("projects.eyebrow")}
-        </p>
-        <h1 className="text-4xl md:text-5xl font-normal text-[#4285F4] mb-6">
-          Camila{" "}
-          <span className="text-gradient glow text-gray-900">
-            {t("projects.titleWord")}
-          </span>
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-          {t("projects.subtitle")}
-        </p>
+      <section className="pt-20 pb-10 px-4">
+        <SectionHeader
+          eyebrow={t("projects.eyebrow")}
+          titleWord={t("projects.titleWord")}
+          title={t("projects.title")}
+          subtitle={t("projects.subtitle")}
+          as="h1"
+        />
       </section>
 
       {/* 项目网格 */}

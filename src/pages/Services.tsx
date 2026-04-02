@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useTranslation } from 'react-i18next'
+import SectionHeader from '../components/SectionHeader'
+import { fontSize } from '../styles/typography'
 
 const Services: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -38,17 +40,13 @@ const Services: React.FC = () => {
   return (
     <section id="services" className="py-20 px-4">
       <div className="max-w-7xl mx-auto" ref={sectionRef}>
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
-            {t('services.eyebrow')}
-          </p>
-          <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4">
-            {t('services.title')}
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-            {t('services.subtitle')}
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow={t('services.eyebrow')}
+          titleWord={t('services.titleWord')}
+          title={t('services.title')}
+          subtitle={t('services.subtitle')}
+          className="mb-12"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => (
@@ -61,8 +59,8 @@ const Services: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-normal text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 font-light leading-relaxed">{service.description}</p>
+              <h3 className={`${fontSize.cardTitle} font-normal text-gray-900 mb-3`}>{service.title}</h3>
+              <p className={`${fontSize.cardBody} text-gray-600 font-light leading-relaxed`}>{service.description}</p>
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { useTranslation } from 'react-i18next'
+import SectionHeader from '../components/SectionHeader'
 
 interface GitHubStats {
   totalStars: number
@@ -298,21 +299,16 @@ const GitHub: React.FC = () => {
   return (
     <div id="github">
       {/* 页面标题 */}
-      <section className="pt-20 pb-10 px-4 text-center">
-        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
-          {t("github.eyebrow")}
-        </p>
-        <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-6">
-          GitHub{" "}
-          <span className="text-gradient glow text-gray-900">
-            {t("github.titleData")}
-          </span>
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light">
-          {t("github.subtitle")}
-        </p>
+      <section className="pt-20 pb-10 px-4">
+        <SectionHeader
+          eyebrow={t("github.eyebrow")}
+          titleWord={t("github.titleWord")}
+          title={t("github.titleData")}
+          subtitle={t("github.subtitle")}
+          as="h1"
+        />
         {error && (
-          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-500 text-sm">
+          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-500 text-sm text-center">
             注意: {error}，显示的是备用数据
           </div>
         )}

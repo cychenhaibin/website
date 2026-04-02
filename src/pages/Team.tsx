@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import SectionHeader from "../components/SectionHeader";
 // import meituanLogo from "../assets/meituan.jpg";
 import shopeeLogo from "../assets/shopee_boy.jpg";
 // import zhihuitongLogo from "../assets/zhihuitong.png";
@@ -104,19 +105,14 @@ const Team: React.FC = () => {
   return (
     <div id="team">
       {/* 标题区域 */}
-      <section className="pt-20 pb-10 px-4 text-center">
-        <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
-          {t("team.eyebrow")}
-        </p>
-        <h1 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4">
-          <span className="text-[#4285F4] font-semibold">
-            {t("team.titleWord")}
-          </span>{" "}
-          {t("team.title")}
-        </h1>
-        <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto font-light">
-          {t("team.subtitle")}
-        </p>
+      <section className="pt-20 pb-10 px-4">
+        <SectionHeader
+          eyebrow={t("team.eyebrow")}
+          titleWord={t("team.titleWord")}
+          title={t("team.title")}
+          subtitle={t("team.subtitle")}
+          as="h1"
+        />
       </section>
 
       {/* 时间轴区域 */}

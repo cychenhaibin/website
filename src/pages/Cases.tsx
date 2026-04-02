@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { useTranslation } from 'react-i18next'
+import SectionHeader from '../components/SectionHeader'
+import { fontSize } from '../styles/typography'
 
 const Cases: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -40,17 +42,13 @@ const Cases: React.FC = () => {
   return (
     <section id="cases" className="py-20 px-4 bg-[linear-gradient(180deg,rgba(66,133,244,0.04),rgba(255,255,255,0))]">
       <div className="max-w-7xl mx-auto" ref={sectionRef}>
-        <div className="text-center mb-12">
-          <p className="text-sm uppercase tracking-[0.28em] text-[#4285F4] mb-3">
-            {t('cases.eyebrow')}
-          </p>
-          <h2 className="text-4xl md:text-5xl font-normal text-gray-900 mb-4">
-            {t('cases.title')}
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
-            {t('cases.subtitle')}
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow={t('cases.eyebrow')}
+          titleWord={t('cases.titleWord')}
+          title={t('cases.title')}
+          subtitle={t('cases.subtitle')}
+          className="mb-12"
+        />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {cases.map((item, index) => (
@@ -59,8 +57,8 @@ const Cases: React.FC = () => {
               className="case-card rounded-2xl border border-gray-200 bg-white p-7 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200"
             >
               <div className="text-sm text-[#4285F4] mb-4">0{index + 1}</div>
-              <h3 className="text-xl font-normal text-gray-900 mb-3">{item.title}</h3>
-              <p className="text-gray-600 font-light leading-relaxed mb-5">{item.summary}</p>
+              <h3 className={`${fontSize.cardTitle} font-normal text-gray-900 mb-3`}>{item.title}</h3>
+              <p className={`${fontSize.cardBody} text-gray-600 font-light leading-relaxed mb-5`}>{item.summary}</p>
               <div className="space-y-3 text-sm">
                 <div>
                   <span className="text-gray-500">{t('cases.outcomeLabel')}:</span>{' '}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import dayjs from 'dayjs'
 import { useTranslation } from 'react-i18next'
+import { fontSize } from '../styles/typography'
 
 interface YuqueStats {
   wordCount: number
@@ -206,18 +207,18 @@ const Home: React.FC = () => {
           <div className="hero-subtitle inline-flex items-center rounded-full border border-[#4285F4]/20 bg-white/80 px-4 py-2 text-sm text-[#4285F4] shadow-sm mb-6">
             {t('home.hero.badge')}
           </div>
-          <h1 className="hero-title text-5xl md:text-7xl font-normal mb-6">
+          <h1 className={`hero-title ${fontSize.heroTitle} font-normal mb-6`}>
             <span className="text-[#4285F4]">{t('home.hero.title1')} </span>
             <span className="text-gray-900">{t('home.hero.title2')}</span>
           </h1>
 
-          <p className="hero-subtitle text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed font-light">
+          <p className={`hero-subtitle ${fontSize.heroSubtitle} text-gray-600 mb-8 leading-relaxed font-light`}>
             {t('home.hero.subtitleLine1')}
             <br />
-            <span className="text-[#4285F4] font-normal text-xl">{t('home.hero.subtitleLine2')}</span>
+            <span className={`text-[#4285F4] font-normal ${fontSize.heroSubtitle}`}>{t('home.hero.subtitleLine2')}</span>
           </p>
 
-          <p className="hero-cta text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed">
+          <p className={`hero-cta ${fontSize.heroBody} text-gray-600 max-w-3xl mx-auto mb-8 font-light leading-relaxed`}>
             {t('home.hero.summary')}
           </p>
 
@@ -290,31 +291,49 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group p-6 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer"
-              >
-                <a href={feature.href}>
-                  <div className="hidden md:block mb-4 text-center transition-transform duration-200">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-normal text-gray-900 mb-3 group-hover:text-[#4285F4] transition-colors">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 font-light leading-relaxed group-hover:text-gray-900 transition-colors">
-                    {feature.description}
-                  </p>
+          <div className="flex flex-col lg:flex-row gap-8 items-stretch">
+            {/* 左侧：知识花园思维导图 */}
+            <div className="lg:w-2/3 flex-shrink-0">
+              <div className="group relative h-full rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 bg-[#1a1a2e]">
+                <a href="https://www.yuque.com/cychenhaibin" target="_blank" rel="noopener noreferrer" className="block h-full">
+                  <img
+                    src="/yuque-mindmap.png"
+                    alt="知识花园 / Camila 语雀思维导图"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
                 </a>
               </div>
-            ))}
+            </div>
+
+            {/* 右侧：特色卡片 */}
+            <div className="lg:w-1/3 flex flex-col justify-between gap-4">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="group p-3 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col"
+                >
+                  <a href={feature.href} className="flex items-center gap-4">
+                    <div className="flex-shrink-0 transition-transform duration-200">
+                      {feature.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-normal text-gray-900 group-hover:text-[#4285F4] transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 font-light leading-relaxed group-hover:text-gray-900 transition-colors">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* 统计数据 */}
-      <section className="py-10 px-4">
+      <section className="p-4">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-4 md:grid-cols-4 gap-8 text-center">
             {loading ? (
