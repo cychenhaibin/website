@@ -156,7 +156,7 @@ const Header: React.FC = () => {
 
         {/* 移动端菜单 */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden bg-white/95 backdrop-blur-sm ${isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+          className={`md:hidden transition-all duration-300 overflow-hidden bg-white/95 backdrop-blur-sm ${isMenuOpen ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'
             }`}
         >
           <nav className="py-4 space-y-1">

@@ -27,7 +27,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
     position: t("team.position"),
     duration: "2026.01 - 至今",
     description: t("team.experiences.shopee1.description"),
-    companyUrl: undefined,
+    companyUrl: "https://shopee.com",
     color: "from-orange-400 to-red-500",
     bgGradient: "from-orange-500/40 via-red-400/10 to-rose-400/30",
     logo: shopeeLogo,
@@ -42,7 +42,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
     position: t("team.position"),
     duration: "2024.09 - 2024.12",
     description: t("team.experiences.oasyce.description"),
-    companyUrl: undefined,
+    companyUrl: "https://oasyce.com",
     color: "from-emerald-400 to-cyan-500",
     bgGradient: "from-emerald-500/40 via-emerald-400/10 to-cyan-400/30",
     logo: oasyce,
@@ -103,7 +103,7 @@ const Team: React.FC = () => {
   const internshipExperiences = getInternshipExperiences(t);
 
   return (
-    <div id="team">
+    <div id="team" className="bg-[linear-gradient(180deg,rgba(255,255,255,0),rgba(66,133,244,0.04))]">
       {/* 标题区域 */}
       <section className="pt-20 pb-10 px-4">
         <SectionHeader
