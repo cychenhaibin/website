@@ -9,6 +9,12 @@ const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMenuOpen(false)
+      }
+    }
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
 
@@ -29,7 +35,11 @@ const Header: React.FC = () => {
     }
 
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   useEffect(() => {
@@ -75,83 +85,149 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${isScrolled
-          ? 'bg-white/95 border-b border-gray-200 shadow-sm'
-          : 'bg-transparent'
-        }`}
+      className="fixed inset-x-0 top-0 z-50 pointer-events-none"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <button
-            onClick={() => scrollToSection('home')}
-            className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
-          >
-            <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
-            <span>Camila</span>
-          </button>
-
-          {/* 桌面端导航 */}
-          <nav className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`nav-item relative font-light px-4 py-2 md:py-1.5 text-sm transition-colors duration-200 ${activeSection === item.id
-                    ? 'text-[#4285F4]'
-                    : 'text-gray-700 hover:text-[#4285F4]'
-                  }`}
-              >
-                {item.label}
-              </button>
-            ))}
-            {/* 语言切换 */}
-            <div className="flex items-center space-x-1 pl-2 ml-2 border-l border-gray-200">
-              <button
-                onClick={() => i18n.changeLanguage('zh')}
-                className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
-                aria-label="切换到中文"
-              >
-                {t('common.lang.zh')}
-              </button>
-              <button
-                onClick={() => i18n.changeLanguage('en')}
-                className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
-                aria-label="Switch to English"
-              >
-                {t('common.lang.en')}
-              </button>
-            </div>
-          </nav>
-
-          {/* 移动端菜单按钮 */}
-          <button
-            className="md:hidden p-2 text-gray-700 hover:text-[#4285F4] transition-colors"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+      <div
+        className={`pointer-events-auto mx-auto transition-all duration-500 ease-out ${
+          isScrolled
+            ? 'px-3 pt-3 md:w-fit md:max-w-[calc(100vw-1.5rem)]'
+            : 'max-w-7xl px-4 sm:px-6 lg:px-8 pt-0'
+        }`}
+      >
+        <div
+          className={`transition-all duration-500 ease-out ${
+            isScrolled
+              ? 'rounded-[9999px] bg-white/60 px-4 ring-[0.5px] ring-gray-200/80 shadow-[0_2px_16px_-6px_rgba(0,0,0,0.08),0_0_0_0.5px_rgba(0,0,0,0.02)] backdrop-blur-2xl'
+              : 'px-0'
+          }`}
+        >
+          <div className={`flex items-center md:hidden ${isScrolled ? 'h-12' : 'h-16'}`}>
+            <button
+              onClick={() => scrollToSection('home')}
+              className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
             >
-              {isMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
+              <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
+              <span>Camila</span>
+            </button>
+
+            <button
+              className="ml-auto p-2 text-gray-700 hover:text-[#4285F4] transition-colors"
+              onClick={toggleMenu}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {isScrolled ? (
+            <div className="hidden h-12 md:flex md:w-fit md:items-center md:gap-4 lg:gap-6">
+              <div className="shrink-0">
+                <button
+                  onClick={() => scrollToSection('home')}
+                  className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
+                >
+                  <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
+                  <span>Camila</span>
+                </button>
+              </div>
+
+              <nav className="flex shrink-0 items-center justify-center space-x-0.5 lg:space-x-1 whitespace-nowrap">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`nav-item relative font-light px-4 py-2 md:py-1.5 text-sm transition-colors duration-200 ${activeSection === item.id
+                        ? 'text-[#4285F4]'
+                        : 'text-gray-700 hover:text-[#4285F4]'
+                      }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              <div className="flex shrink-0 items-center space-x-1 pl-3 border-l border-gray-200">
+                <button
+                  onClick={() => i18n.changeLanguage('zh')}
+                  className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                  aria-label="切换到中文"
+                >
+                  {t('common.lang.zh')}
+                </button>
+                <button
+                  onClick={() => i18n.changeLanguage('en')}
+                  className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                  aria-label="Switch to English"
+                >
+                  {t('common.lang.en')}
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="hidden h-16 w-full md:flex md:items-center md:justify-between">
+              <button
+                onClick={() => scrollToSection('home')}
+                className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
+              >
+                <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
+                <span>Camila</span>
+              </button>
+
+              <div className="flex items-center gap-4 lg:gap-6">
+                <nav className="flex items-center justify-center space-x-0.5 lg:space-x-1 whitespace-nowrap">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`nav-item relative font-light px-4 py-2 md:py-1.5 text-sm transition-colors duration-200 ${activeSection === item.id
+                          ? 'text-[#4285F4]'
+                          : 'text-gray-700 hover:text-[#4285F4]'
+                        }`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </nav>
+
+                <div className="flex shrink-0 items-center space-x-1 pl-3 border-l border-gray-200">
+                  <button
+                    onClick={() => i18n.changeLanguage('zh')}
+                    className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                    aria-label="切换到中文"
+                  >
+                    {t('common.lang.zh')}
+                  </button>
+                  <button
+                    onClick={() => i18n.changeLanguage('en')}
+                    className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                    aria-label="Switch to English"
+                  >
+                    {t('common.lang.en')}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* 移动端菜单 */}
