@@ -84,11 +84,11 @@ const resources = {
         title: '经历',
         subtitle: '实习 && 工作',
         companyHomepage: '公司主页',
-        position: '前端开发',
         experiences: {
           shopee2: {
             company: 'Shopee',
             description: '供应链',
+            position: '全栈开发',
             achievements: [
               '参与供应链运营平台的多个模块开发，提升内部流程效率。',
               '将零散页面重构为可配置表单与表格，提高需求响应速度。',
@@ -99,6 +99,7 @@ const resources = {
           oasyce: {
             company: '绿洲时空',
             description: '',
+            position: 'App开发',
             achievements: [
               '负责到家业务核心页面重构，将首屏加载时间优化约 30%。',
               '基于业务数据梳理交互流程，推动 2 个重要功能的体验改版落地。',
@@ -109,6 +110,7 @@ const resources = {
           meituan: {
             company: '美团',
             description: '到家事业群',
+            position: '前端开发',
             achievements: [
               '搭建营销活动组件库，沉淀 10+ 复用组件，减少重复开发工作量。',
               '参与 A/B 实验方案实现，支持多版本页面按配置快速切换。',
@@ -119,6 +121,7 @@ const resources = {
           shopee1: {
             company: 'Shopee',
             description: '供应链',
+            position: '前端开发',
             achievements: [
               '参与供应链运营平台的多个模块开发，提升内部流程效率。',
               '将零散页面重构为可配置表单与表格，提高需求响应速度。',
@@ -129,6 +132,7 @@ const resources = {
           zhihuitong: {
             company: '智慧通',
             description: '数字教育',
+            position: '前端开发',
             achievements: [
               '参与教务管理、课程排课等业务需求实现，打磨交互体验。',
               '针对弱网环境做加载与占位优化，减少页面白屏时间。',
@@ -236,6 +240,7 @@ const resources = {
           joinCommunity: '加入我们的开源社区',
           startContributing: '开始贡献'
         },
+        carouselHint: '左右滑动查看更多',
         lang: {
           zh: '中文',
           en: 'English'
@@ -334,11 +339,22 @@ const resources = {
         title: 'Experience',
         subtitle: 'Intern && Work',
         companyHomepage: 'Company',
-        position: 'Frontend Development Intern',
         experiences: {
+          shopee2: {
+            company: 'Shopee',
+            description: 'Supply Chain',
+            position: 'Full-Stack Development',
+            achievements: [
+              'Participated in developing multiple modules of the supply chain operations platform, improving internal process efficiency.',
+              'Refactored scattered pages into configurable forms and tables, increasing demand response speed.',
+              'Established unified data interface standards with backend, reducing frontend-backend integration costs.'
+            ],
+            skills: ['React', 'Admin Panel Design', 'Forms & Tables', 'Configurability', 'Cross-timezone Collaboration']
+          },
           oasyce: {
             company: 'Oasyce',
             description: '',
+            position: 'App Development Intern',
             achievements: [
               'Responsible for refactoring core pages of home delivery business, optimizing first-screen loading time by approximately 30%.',
               'Organized interaction flows based on business data, and promoted the implementation of experience improvements for 2 important features.',
@@ -349,6 +365,7 @@ const resources = {
           meituan: {
             company: 'Meituan',
             description: 'CLC',
+            position: 'Frontend Development',
             achievements: [
               'Built a marketing activity component library, accumulated 10+ reusable components, reducing redundant development work.',
               'Participated in A/B testing implementation, supporting quick switching between multiple page versions via configuration.',
@@ -356,9 +373,10 @@ const resources = {
             ],
             skills: ['React', 'Frontend Monitoring', 'A/B Testing', 'Componentization', 'Cross-functional Communication']
           },
-          shopee: {
+          shopee1: {
             company: 'Shopee',
             description: 'Supply Chain',
+            position: 'Frontend Development',
             achievements: [
               'Participated in developing multiple modules of the supply chain operations platform, improving internal process efficiency.',
               'Refactored scattered pages into configurable forms and tables, increasing demand response speed.',
@@ -369,6 +387,7 @@ const resources = {
           zhihuitong: {
             company: 'Zhihuitong',
             description: 'Digital Education',
+            position: 'Frontend Development',
             achievements: [
               'Participated in implementing business requirements such as academic management and course scheduling, refining interaction experience.',
               'Optimized loading and placeholders for weak network environments, reducing page white screen time.',
@@ -476,6 +495,7 @@ const resources = {
           joinCommunity: 'Join our open-source community',
           startContributing: 'Get Started'
         },
+        carouselHint: 'Swipe left or right to explore more',
         lang: {
           zh: '中文',
           en: 'English'

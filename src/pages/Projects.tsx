@@ -21,6 +21,16 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: t("projects.items.knowviaAgent.title"),
+      description: t("projects.items.knowviaAgent.description"),
+      technologies: ["Expo", "Go", "Python", "RAG"],
+      githubUrl: "https://github.com/cychenhaibin/Knowvia-Agent",
+      stars: 0,
+      forks: 0,
+      image: "",
+    },
+    {
+      id: 2,
       title: t("projects.items.cube.title"),
       description: t("projects.items.cube.description"),
       technologies: ["React", "TypeScript", "Tailwind CSS", "dumi"],
@@ -30,7 +40,7 @@ const Projects: React.FC = () => {
       image: "",
     },
     {
-      id: 2,
+      id: 3,
       title: t("projects.items.cubeai.title"),
       description: t("projects.items.cubeai.description"),
       technologies: ["React", "TypeScript", "Tailwind CSS", "WebSocket"],
@@ -40,7 +50,7 @@ const Projects: React.FC = () => {
       image: "",
     },
     {
-      id: 3,
+      id: 4,
       title: t("projects.items.zhiyi.title"),
       description: t("projects.items.zhiyi.description"),
       technologies: ["Vue", "TypeScript", "Tailwind CSS"],
@@ -50,23 +60,13 @@ const Projects: React.FC = () => {
       image: "",
     },
     {
-      id: 4,
+      id: 5,
       title: t("projects.items.wxlxai.title"),
       description: t("projects.items.wxlxai.description"),
       technologies: ["Vue", "TypeScript", "uniapp"],
       githubUrl: "https://github.com/cychenhaibin/WX-LXAI.git",
       stars: 442,
       forks: 32,
-      image: "",
-    },
-    {
-      id: 5,
-      title: t("projects.items.knowviaAgent.title"),
-      description: t("projects.items.knowviaAgent.description"),
-      technologies: ["Expo", "Go", "Python", "RAG"],
-      githubUrl: "https://github.com/cychenhaibin/Knowvia-Agent",
-      stars: 0,
-      forks: 0,
       image: "",
     },
     // {
@@ -124,7 +124,50 @@ const Projects: React.FC = () => {
       {/* 项目网格 */}
       <section ref={projectsRef} className="py-5 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="md:hidden -mx-4 mb-2">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-[7.5vw] pb-4 pt-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              {projects.map((project) => (
+                <article
+                  key={project.id}
+                  className="project-card snap-center shrink-0 w-[85vw] rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="flex justify-between items-center mb-3 gap-3">
+                    <h3 className="text-lg font-normal text-gray-900">
+                      {project.title}
+                    </h3>
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-[#4285F4] px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm whitespace-nowrap"
+                    >
+                      {t("projects.viewSource")}
+                    </a>
+                  </div>
+
+                  <p className="text-sm text-gray-600 mb-4 leading-relaxed font-light">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-gray-50 text-gray-700 text-xs rounded-full border border-gray-200"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="px-4 text-center text-xs text-gray-400 font-light">
+              {t("common.carouselHint")}
+            </p>
+          </div>
+
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div
                 key={project.id}

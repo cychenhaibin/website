@@ -313,7 +313,7 @@ const Home: React.FC = () => {
                   className="group p-3 bg-white rounded-lg border border-gray-200 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col"
                 >
                   <a href={feature.href} className="flex items-center gap-4">
-                    <div className="flex-shrink-0 transition-transform duration-200">
+                    <div className="hidden lg:block flex-shrink-0 transition-transform duration-200">
                       {feature.icon}
                     </div>
                     <div>

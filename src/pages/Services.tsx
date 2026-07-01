@@ -52,9 +52,9 @@ const Services: React.FC = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="service-card rounded-2xl border border-gray-200 bg-white p-7 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200"
+              className="service-card rounded-2xl border border-gray-200 bg-white p-3 lg:p-7 hover:border-[#4285F4]/50 hover:shadow-md transition-all duration-200"
             >
-              <div className="w-11 h-11 rounded-xl bg-[#4285F4]/10 text-[#4285F4] flex items-center justify-center mb-5">
+              <div className="hidden lg:flex w-11 h-11 rounded-xl bg-[#4285F4]/10 text-[#4285F4] items-center justify-center mb-5">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.7} d="M5 12h14M12 5l7 7-7 7" />
                 </svg>

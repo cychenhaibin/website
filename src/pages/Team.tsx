@@ -23,10 +23,10 @@ interface InternshipExperience {
 const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 0,
-    company: t("team.experiences.shopee1.company"),
-    position: t("team.position"),
-    duration: "2026.01 - 至今",
-    description: t("team.experiences.shopee1.description"),
+    company: t("team.experiences.shopee2.company"),
+    position: t("team.experiences.shopee2.position"),
+    duration: "2026.01 - now",
+    description: t("team.experiences.shopee2.description"),
     companyUrl: "https://shopee.com",
     color: "from-orange-400 to-red-500",
     bgGradient: "from-orange-500/40 via-red-400/10 to-rose-400/30",
@@ -39,7 +39,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 1,
     company: t("team.experiences.oasyce.company"),
-    position: t("team.position"),
+    position: t("team.experiences.oasyce.position"),
     duration: "2024.09 - 2024.12",
     description: t("team.experiences.oasyce.description"),
     companyUrl: "https://oasyce.com",
@@ -54,7 +54,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 2,
     company: t("team.experiences.meituan.company"),
-    position: t("team.position"),
+    position: t("team.experiences.meituan.position"),
     duration: "2025.06 - 2025.09",
     description: t("team.experiences.meituan.description"),
     companyUrl: "https://www.meituan.com",
@@ -69,9 +69,9 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 3,
     company: t("team.experiences.shopee1.company"),
-    position: t("team.position"),
+    position: t("team.experiences.shopee1.position"),
     duration: "2025.03 - 2025.06",
-    description: t("team.experiences.shopee.description"),
+    description: t("team.experiences.shopee1.description"),
     companyUrl: "https://shopee.com",
     color: "from-orange-400 to-red-500",
     bgGradient: "from-orange-500/40 via-red-400/10 to-rose-400/30",
@@ -118,10 +118,79 @@ const Team: React.FC = () => {
       {/* 时间轴区域 */}
       <section className="pb-16 px-4">
         <div className="max-w-5xl mx-auto relative">
-          {/* 中心竖线（移动端靠左，卡片在右侧；桌面端居中交错） */}
-          <div className="absolute left-5 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-slate-500/40 via-slate-500/20 to-transparent pointer-events-none" />
+          <div className="md:hidden -mx-4">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory px-[7.5vw] pb-4 pt-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              {internshipExperiences.map((experience) => (
+                <article
+                  key={experience.id}
+                  className="snap-center shrink-0 w-[85vw] rounded-lg border border-gray-200 bg-white p-5 shadow-sm"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-12 h-12 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex-none">
+                      <img
+                        src={experience.logo}
+                        alt={experience.company}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="min-w-0">
+                          <h3 className="text-lg font-normal text-gray-900 truncate">
+                            {experience.company}
+                          </h3>
+                          {experience.description && (
+                            <p className="text-sm text-gray-600 leading-relaxed font-light mt-0.5">
+                              {experience.description}
+                            </p>
+                          )}
+                        </div>
+                        {experience.companyUrl && (
+                          <a
+                            href={experience.companyUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-[#4285F4] hover:underline whitespace-nowrap flex-shrink-0"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-3.5 w-3.5"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                            <span>{t("team.companyHomepage")}</span>
+                          </a>
+                        )}
+                      </div>
 
-          <div className="space-y-10 md:space-y-16 relative">
+                      <div className="flex gap-3">
+                        <p className="text-sm text-gray-500">{experience.duration}</p>
+                        <span className="px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm">
+                          {experience.position}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="px-4 text-center text-xs text-gray-400 font-light">
+              {t("common.carouselHint")}
+            </p>
+          </div>
+
+          {/* 中心竖线（移动端靠左，卡片在右侧；桌面端居中交错） */}
+          <div className="hidden md:block absolute left-5 md:left-1/2 md:-translate-x-px top-0 bottom-0 w-px bg-gradient-to-b from-slate-500/40 via-slate-500/20 to-transparent pointer-events-none" />
+
+          <div className="hidden md:block space-y-10 md:space-y-16 relative">
             {internshipExperiences.map((experience, index) => {
               const isLeft = index % 2 === 0;
               return (
