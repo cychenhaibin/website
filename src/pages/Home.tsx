@@ -225,13 +225,13 @@ const Home: React.FC = () => {
           <div className="hero-cta flex flex-row gap-4 justify-center mb-6">
             <button
               onClick={() => scrollToSection('contact')}
-              className="inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-4 py-2 text-white hover:bg-[#357ae8] transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-4 py-2 md:py-1.5 text-white hover:bg-[#357ae8] transition-colors"
             >
               {t('home.hero.primaryCta')}
             </button>
             <button
               onClick={() => scrollToSection('services')}
-              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-gray-900 hover:border-[#4285F4] hover:text-[#4285F4] transition-colors"
+              className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 md:py-1.5 text-gray-900 hover:border-[#4285F4] hover:text-[#4285F4] transition-colors"
             >
               {t('home.hero.secondaryCta')}
             </button>

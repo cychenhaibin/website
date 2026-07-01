@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                 href="https://github.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
+                className="p-2 md:p-1.5 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="GitHub"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
                 href="https://www.yuque.com/cychenhaibin"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
+                className="p-2 md:p-1.5 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="语雀"
               >
                 <div className="w-5 h-5">
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
               </a>
               <a
                 href="mailto:haibinchenleo@outlook.com"
-                className="p-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
+                className="p-2 md:p-1.5 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700 hover:text-[#4285F4] transition-all duration-200"
                 title="Email"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

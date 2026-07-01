@@ -146,7 +146,7 @@ const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:text-[#4285F4] px-2 py-0.5 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm"
+                      className="hover:text-[#4285F4] px-2 py-0.5 md:py-0 text-xs font-normal text-[#4285F4] rounded-md bg-[#4285F4]/10 border border-[#4285F4]/30 shadow-sm"
                     >
                       {t("projects.viewSource")}
                     </a>

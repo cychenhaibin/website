@@ -79,7 +79,7 @@ const FloatingSocials: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.1, type: "spring", stiffness: 300, damping: 20 }}
-            className={`w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 text-gray-500 ${link.color}`}
+            className={`w-11 h-11 flex items-center justify-center rounded-full bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 text-gray-500 ${link.color}`}
           >
             {link.icon}
           </motion.a>

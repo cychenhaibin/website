@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
               <div className="flex flex-row gap-3 md:gap-4">
                 <a
                   href="mailto:haibinchenleo@outlook.com"
-                  className="inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-4 py-2 text-white no-underline hover:text-white hover:no-underline hover:bg-[#357ae8] transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg bg-[#4285F4] px-4 py-2 md:py-1.5 text-white no-underline hover:text-white hover:no-underline hover:bg-[#357ae8] transition-colors"
                 >
                   {t('contact.primaryCta')}
                 </a>
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
                   href="https://github.com/cychenhaibin"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 text-gray-900 no-underline hover:text-[#4285F4] hover:border-[#4285F4] hover:no-underline transition-colors"
+                  className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-4 py-2 md:py-1.5 text-gray-900 no-underline hover:text-[#4285F4] hover:border-[#4285F4] hover:no-underline transition-colors"
                 >
                   {t('contact.secondaryCta')}
                 </a>

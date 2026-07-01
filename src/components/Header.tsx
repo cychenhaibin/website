@@ -97,7 +97,7 @@ const Header: React.FC = () => {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`nav-item relative font-light px-4 py-2 text-sm transition-colors duration-200 ${activeSection === item.id
+                className={`nav-item relative font-light px-4 py-2 md:py-1.5 text-sm transition-colors duration-200 ${activeSection === item.id
                     ? 'text-[#4285F4]'
                     : 'text-gray-700 hover:text-[#4285F4]'
                   }`}
@@ -109,14 +109,14 @@ const Header: React.FC = () => {
             <div className="flex items-center space-x-1 pl-2 ml-2 border-l border-gray-200">
               <button
                 onClick={() => i18n.changeLanguage('zh')}
-                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('zh') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
                 aria-label="切换到中文"
               >
                 {t('common.lang.zh')}
               </button>
               <button
                 onClick={() => i18n.changeLanguage('en')}
-                className={`px-3 py-1.5 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
+                className={`px-3 py-1.5 md:py-1 text-xs font-light rounded transition-colors ${i18n.language.startsWith('en') ? 'text-[#4285F4] bg-[#4285F4]/10' : 'text-[#9aa0a6] hover:text-gray-900 hover:bg-white/5'}`}
                 aria-label="Switch to English"
               >
                 {t('common.lang.en')}
