@@ -59,6 +59,16 @@ const Projects: React.FC = () => {
       forks: 32,
       image: "",
     },
+    {
+      id: 5,
+      title: t("projects.items.knowviaAgent.title"),
+      description: t("projects.items.knowviaAgent.description"),
+      technologies: ["Expo", "Go", "Python", "RAG"],
+      githubUrl: "https://github.com/cychenhaibin/Knowvia-Agent",
+      stars: 0,
+      forks: 0,
+      image: "",
+    },
     // {
     //   id: 5,
     //   title: "SecureChat",

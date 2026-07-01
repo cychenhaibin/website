@@ -22,6 +22,12 @@ const Cases: React.FC = () => {
       stack: t('cases.items.ai.stack')
     },
     {
+      title: t('cases.items.distribution.title'),
+      summary: t('cases.items.distribution.summary'),
+      outcome: t('cases.items.distribution.outcome'),
+      stack: t('cases.items.distribution.stack')
+    },
+    {
       title: t('cases.items.platform.title'),
       summary: t('cases.items.platform.summary'),
       outcome: t('cases.items.platform.outcome'),
@@ -50,7 +56,7 @@ const Cases: React.FC = () => {
           className="mb-12"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {cases.map((item, index) => (
             <article
               key={item.title}

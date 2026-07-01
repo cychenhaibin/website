@@ -16,15 +16,15 @@ const resources = {
       home: {
         eyebrow: '',
         hero: {
-          badge: '前端工程师 / AI 应用开发者 / 开源作者',
+          badge: '全栈工程师 / AI 应用开发者 / 开源作者',
           title1: 'Camila',
           title2: 'Site',
           subtitleLine1: '重庆邮电大学 - 计算机科学与技术',
-          subtitleLine2: '热爱前端开发，追求极致用户体验',
-          summary: '专注 Web 产品、AI 应用与个人官网定制，完整交付。',
+          subtitleLine2: '热爱全栈开发，追求极致用户体验',
+          summary: '专注 Web/APP 产品、AI 应用与个人官网定制，完整交付。',
           primaryCta: '发起合作',
           secondaryCta: '查看服务',
-          availability: '当前开放：个人官网、活动页、AI 应用前端、技术顾问合作'
+          availability: '当前开放：个人官网、活动页、AI 应用全栈、技术顾问合作'
         },
         features: {
           title: '的语雀有什么',
@@ -58,14 +58,14 @@ const resources = {
         eyebrow: 'Services',
         titleWord: '合作',
         title: '服务',
-        subtitle: '如果你需要一个可靠的前端伙伴，我可以从 0 到 1 帮你把产品页面做出来，也可以接入现有团队协作交付。',
+        subtitle: '如果你需要一个可靠的前端/后端伙伴，我可以从 0 到 1 帮你把产品页面做出来，也可以接入现有团队协作交付。',
         items: {
           website: {
             title: '个人官网 / 品牌站',
             description: '面向个人 IP、工作室或小团队，打造更有辨识度的官网与作品展示页面。'
           },
           ai: {
-            title: 'AI 应用前端',
+            title: 'AI 应用全栈',
             description: '聚焦对话、工作流、知识库、智能表单等 AI 场景，把产品想法快速做成可用界面。'
           },
           activity: {
@@ -73,7 +73,7 @@ const resources = {
             description: '兼顾视觉表现与转化效率，适合产品发布、招募页、专题页和业务推广页面。'
           },
           consultant: {
-            title: '前端顾问支持',
+            title: '全栈顾问支持',
             description: '帮助梳理组件化、性能优化、交互体验和工程质量，适合短期咨询或阶段性协作。'
           }
         }
@@ -153,10 +153,16 @@ const resources = {
             stack: 'React / TypeScript / Tailwind CSS'
           },
           ai: {
-            title: 'AI 对话产品界面',
-            summary: '围绕聊天、知识检索和结果展示设计交互结构，兼顾易用性与信息密度。',
-            outcome: '缩短从概念验证到可演示产品的时间，便于快速试错与迭代。',
-            stack: 'React / WebSocket / 多端体验设计'
+            title: '文枢智研',
+            summary: '面向文档知识库，整合多源内容，串起同步、索引、检索与问答的完整链路。',
+            outcome: '让研究交付更有证据链，也更容易追踪、引用与复用。',
+            stack: 'Go / Python / TypeScript / Kotlin'
+          },
+          distribution: {
+            title: 'AI 聚合分发平台',
+            summary: '对标 New API、Sub2API，搭建统一接入、模型聚合与任务分发能力。',
+            outcome: '让多模型调用和分发链路更统一、更易扩展。',
+            stack: 'Go / TypeScript / Python'
           },
           platform: {
             title: '中后台业务系统',
@@ -188,6 +194,10 @@ const resources = {
           wxlxai: {
             title: 'WX-LXAI',
             description: '在微信小程序、移动 App 与 PC 平台提供一致的 ChatAI 体验'
+          },
+          knowviaAgent: {
+            title: 'Knowvia-Agent',
+            description: '面向文档知识库的 AI 研究助手，支持知识同步、检索、问答与结构化报告生成'
           }
         }
       },
@@ -208,7 +218,7 @@ const resources = {
         eyebrow: 'Contact',
         titleWord: '联系',
         title: '合作',
-        subtitle: '如果你正在找人一起做官网、活动页、AI 产品前端，或者想聊技术方案，欢迎直接联系我。',
+        subtitle: '如果你正在找人一起做官网、活动页、AI 产品前端/后端，或者想聊技术方案，欢迎直接联系我。',
         availabilityTitle: '合作方式',
         availabilityValue: '远程协作 / 短期项目 / 顾问支持 / 全职机会',
         responseTitle: '回复方式',
@@ -233,7 +243,7 @@ const resources = {
       },
       footer: {
         brand: {
-          description: '专注前端开发、AI 应用界面与个人品牌官网定制，用更清晰的产品表达帮助想法落地。'
+          description: '专注全栈开发、AI 应用界面与个人品牌官网定制，用更清晰的产品表达帮助想法落地。'
         },
         quickLinks: '快速链接',
         contactMe: '联系我',
@@ -256,15 +266,15 @@ const resources = {
       home: {
         eyebrow: '',
         hero: {
-          badge: 'Frontend Engineer / AI Builder / Open Source Author',
+          badge: 'Full-Stack Engineer / AI Builder / Open Source Author',
           title1: 'Camila',
           title2: 'Site',
           subtitleLine1: 'CQUPT - Computer Science and Technology',
-          subtitleLine2: 'Passionate about frontend, striving for ultimate UX',
-          summary: 'Focused on web, AI apps, and personal websites, end-to-end delivery.',
+          subtitleLine2: 'Passionate about full-stack development, striving for ultimate UX',
+          summary: 'Focused on Web/APP products, AI apps, and personal websites, end-to-end delivery.',
           primaryCta: 'Start a Project',
           secondaryCta: 'View Services',
-          availability: 'Open for personal websites, campaign pages, AI frontend work, and technical consulting'
+          availability: 'Open for personal websites, campaign pages, AI full-stack work, and technical consulting'
         },
         features: {
           title: "'s Yuque Highlights",
@@ -298,22 +308,22 @@ const resources = {
         eyebrow: 'Services',
         titleWord: 'Our',
         title: 'Services',
-        subtitle: 'If you need a dependable frontend partner, I can build from zero to launch or collaborate inside an existing team.',
+        subtitle: 'If you need a dependable frontend/backend partner, I can build from zero to launch or collaborate inside an existing team.',
         items: {
           website: {
             title: 'Personal Websites',
             description: 'Official websites and portfolio experiences for individuals, studios, and small teams with a clearer brand voice.'
           },
           ai: {
-            title: 'AI Product Frontends',
-            description: 'Interfaces for chat, workflows, knowledge bases, and smart forms that turn product ideas into usable demos quickly.'
+            title: 'AI Product Full-Stack',
+            description: 'Interfaces and backend support for chat, workflows, knowledge bases, and smart forms that turn product ideas into usable demos quickly.'
           },
           activity: {
             title: 'Campaign Pages',
             description: 'Launch pages and marketing experiences designed for both visual impact and conversion clarity.'
           },
           consultant: {
-            title: 'Frontend Consulting',
+            title: 'Full-Stack Consulting',
             description: 'Support on component systems, performance, interaction quality, and engineering decisions for focused collaborations.'
           }
         }
@@ -383,10 +393,16 @@ const resources = {
             stack: 'React / TypeScript / Tailwind CSS'
           },
           ai: {
-            title: 'AI Conversation Product UI',
-            summary: 'Designed interaction patterns for chat, retrieval, and result presentation with a balance of usability and information density.',
-            outcome: 'Reduced the time from idea validation to a demo-ready product for fast iteration.',
-            stack: 'React / WebSocket / Multi-device UX'
+            title: 'Document Intelligence Lab',
+            summary: 'Built for document knowledge bases, unifying multi-source content into a full sync-to-retrieval Q&A workflow.',
+            outcome: 'Makes research delivery evidence-backed, traceable, citable, and reusable.',
+            stack: 'Go / Python / TypeScript / Kotlin'
+          },
+          distribution: {
+            title: 'AI Aggregation & Distribution Platform',
+            summary: 'Benchmarked against New API and Sub2API, built to unify access, model aggregation, and task distribution.',
+            outcome: 'Makes multi-model calls and distribution flows more consistent and easier to scale.',
+            stack: 'Go / TypeScript / Python'
           },
           platform: {
             title: 'Business Platform Systems',
@@ -418,6 +434,10 @@ const resources = {
           wxlxai: {
             title: 'WX-LXAI',
             description: 'A ChatAI implemented across WeChat Mini Program, mobile app, and desktop platforms.'
+          },
+          knowviaAgent: {
+            title: 'Knowvia-Agent',
+            description: 'An AI research assistant for document knowledge bases, with sync, retrieval, Q&A, and structured report generation.'
           }
         }
       },
@@ -438,7 +458,7 @@ const resources = {
         eyebrow: 'Contact',
         titleWord: 'Work',
         title: 'With Me',
-        subtitle: 'If you need help on a website, campaign page, AI product frontend, or technical direction, reach out directly.',
+        subtitle: 'If you need help on a website, campaign page, AI product frontend/backend, or technical direction, reach out directly.',
         availabilityTitle: 'Collaboration',
         availabilityValue: 'Remote work / Short-term projects / Consulting / Full-time opportunities',
         responseTitle: 'Preferred Reply',
@@ -463,7 +483,7 @@ const resources = {
       },
       footer: {
         brand: {
-          description: 'Focused on frontend development, AI product interfaces, and personal brand websites that make ideas easier to understand and launch.'
+          description: 'Focused on full-stack development, AI product interfaces, and personal brand websites that make ideas easier to understand and launch.'
         },
         quickLinks: 'Quick Links',
         contactMe: 'Contact Me',
