@@ -84,7 +84,7 @@ const getInternshipExperiences = (t: any): InternshipExperience[] => [
   {
     id: 4,
     company: t("team.experiences.zhihuitong.company"),
-    position: t("team.position"),
+    position: t("team.experiences.zhihuitong.position"),
     duration: "2024.12 - 2025.03",
     description: t("team.experiences.zhihuitong.description"),
     companyUrl: undefined,

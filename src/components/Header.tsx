@@ -107,7 +107,7 @@ const Header: React.FC = () => {
               className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
             >
               <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
-              <span>Camila</span>
+              <span className={isScrolled ? 'text-[0.8em]' : ''}>Camila</span>
             </button>
 
             <button
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
                   className="flex items-center space-x-2 text-xl font-normal text-gray-900 hover:text-[#4285F4] transition-colors group"
                 >
                   <CamilaLogo size={28} className="text-gray-900 group-hover:text-[#4285F4] transition-colors" />
-                  <span>Camila</span>
+                  <span className="text-[0.8em]">Camila</span>
                 </button>
               </div>
 

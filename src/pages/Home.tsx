@@ -306,7 +306,7 @@ const Home: React.FC = () => {
             </div>
 
             {/* 右侧：特色卡片 */}
-            <div className="lg:w-1/3 flex flex-col justify-between gap-4">
+            <div className="lg:w-1/3 flex flex-col justify-between gap-2">
               {features.map((feature, index) => (
                 <div
                   key={index}
